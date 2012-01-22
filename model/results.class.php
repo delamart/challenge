@@ -10,5 +10,15 @@ class ResultsModel extends CollectionDbLib {
          $this->columns = array('id', 'idchallenge', 'amount', 'date');
          parent::init();
      }
-    
+
+     public function validate(array &$values)
+     {         
+         $errors = parent::validate($values);
+         
+         $errors = $this->validate_numeric($errors, $values, 'amount');
+         $errors = $this->validate_date($errors, $values, 'date');
+         
+         return $errors;
+     }
+     
 }

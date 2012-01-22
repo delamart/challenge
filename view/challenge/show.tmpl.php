@@ -19,7 +19,7 @@
     <section class="grid_8">
         <div class="challenge with-margin">            
             <img class="challenge-avatar" src="<?php echo $this->challenge->user->avatar; ?>" alt="avatar"/>                        
-            <div class="challenge-progress with-progress"></div>
+            <div class="challenge-progress"></div>
             <div class="challenge-amount"><?php echo $this->challenge->total ? $this->challenge->total : 0; ?> <small><?php echo $this->challenge->unit; ?></small></div>
             
             <p class="challenge-name">
@@ -37,7 +37,15 @@
             </p>            
         </div>        
     </section>
-    
+
+    <?php if(count($this->errors)): ?>
+    <div class="with-margin grid_8 error">
+        <ul>
+        <?php foreach($this->errors as $error) echo "<li>$error</li>"; ?>    
+        </ul>
+    </div>
+    <?php endif; ?>
+
     <section class="grid_8">
         <div class="with-margin">
         <?php if($this->challenge->total < $this->challenge->amount): ?>
@@ -45,7 +53,7 @@
                 <div class="challenge-result">
                     <input id="amount" type="text" name="amount" value="<?php echo $this->challenge->rythm; ?>" class="first" size="4" /> <?php echo $this->challenge->unit; ?>
                     &nbsp;&mdash;&nbsp;
-                    <input id="date" type="text" name="date" value="<?php echo date('d-m-Y'); ?>" class="datepicker" size="10" />
+                    <input id="date" type="text" name="date" value="<?php echo date('d-m-Y'); ?>" class="datepicker" size="12" />
                     <button class="green float-right" type="submit">Ajouter</button>
                 </div>
             </form>

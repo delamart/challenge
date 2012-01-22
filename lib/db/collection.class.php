@@ -77,6 +77,53 @@ abstract class CollectionDbLib
         return new $this->obj_class($this, $used);
     }
     
+    public function validate(array &$values)
+    {        
+        return array();
+    }
+    
+    protected function validate_regex($errors, &$values, $field, $regex)
+    {
+        if(isset($values[$field])) {
+            $v = $values[$field];
+            if(!preg_match($regex, $v)) {
+                $errors[$field] = "Invalid $field: $v";
+            }
+        }        
+        return $errors;
+    }
+
+    protected function validate_numeric($errors, &$values, $field)
+    {
+        if(isset($values[$field])) {
+            $v = $values[$field];
+            if(!is_numeric($v)) {
+                $errors[$field] = "$v is not a number";
+            }
+        }        
+        return $errors;
+    }
+
+    protected function validate_date($errors, &$values, $field)
+    {
+        if(isset($values[$field])) {
+            $v = $values[$field];
+            if(!preg_match('/^([0-9]{1,2})-([0-9]{1,2})-([0-9]{2,4})$/', $v, $matches)) {
+                $errors[$field] = "Invalid date: $v";
+            }
+            elseif(!checkdate($matches[2], $matches[1], $matches[3]))
+            {
+                $errors[$field] = "Wrong date: $v";                
+            }
+            else
+            {
+                $values[$field] = date('Y-m-d',  mktime(0,0,0,$matches[2],$matches[1],$matches[3]));
+            }
+        }        
+        return $errors;
+    }
+    
+    
     public function save(ModelDbLib $model) {
         $id = $model->__get($this->pk_column);
         $db = DbLib::getInstance();

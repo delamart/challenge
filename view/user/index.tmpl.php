@@ -39,7 +39,7 @@
                 </div>
                 <div class="input-line with-margin">
                     <label for="site">Site</label> 
-                    <input id="site" type="text" name="site" value="<?php echo $this->user->site; ?>" size="40" placeholder="http://www.example.com" /> 
+                    <input id="site" type="text" name="site" value="<?php echo $this->user->site; ?>" placeholder="http://www.example.com" /> 
                     <span class="help">Votre site internet</span>
                 </div>
                 <div class="input-line double with-margin">

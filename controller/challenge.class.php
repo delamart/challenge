@@ -43,11 +43,19 @@ class ChallengeController extends ControllerSecureLib
         
         if(!$this->user || $this->user->id != $this->challenge->iduser) { return $this->redirect(url('challenge','index')); }
         
+        $this->errors = array();
         if(RoutingLib::isPost())
         {
-            $result = $collr->create($_POST);
-            $result->idchallenge = $id;
-            $result->save();
+            if(count($errors = $collr->validate($_POST)) == 0)
+            {
+                $result = $collr->create($_POST);
+                $result->idchallenge = $id;
+                $result->save();
+            }
+            else
+            {
+                $this->errors = $errors;
+            }            
         }        
         $this->challenge = $coll->getWithUser($id);
         $this->results = $this->challenge->getResults();
