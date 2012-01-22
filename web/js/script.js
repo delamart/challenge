@@ -24,6 +24,6 @@ $(document).ready(function(){
         e.preventDefault();
     }).css('cursor', 'pointer');    
     
-    $('.datepicker').datepicker({ inline: true });    
+    $('.datepicker').datepicker({inline: true, dateFormat: 'dd-mm-yy'});
     
 });

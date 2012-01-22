@@ -1,10 +1,10 @@
 <section class="grid_8">
 <h1>Sorry there was an error</h1>
-<div style="display:none">
+<div>
     <strong><?php echo $this->message; ?></strong>
 </div>
 
-<div style="display:none">
+<div>
     <pre>
 <?php echo $this->trace; ?>
 

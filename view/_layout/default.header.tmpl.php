@@ -12,6 +12,7 @@
 
 	<link rel="stylesheet" href="<?php eUfix('css/style.css'); ?>">
 	<link rel="stylesheet" href="<?php eUfix('css/640.css'); ?>">
+    <link rel="stylesheet" href="<?php eUfix('css/smoothness/jquery-ui-1.8.17.custom.css'); ?>">
 
     <script> window.absolute_url = '<?php echo eUfix('/'); ?>'; </script>
 	<script src="<?php eUfix('js/libs/modernizr-2.0.min.js'); ?>"></script>

@@ -43,9 +43,10 @@
         <?php if($this->challenge->total < $this->challenge->amount): ?>
             <form action="<?php eUrl('challenge','show',$this->id); ?>" method="post">
                 <div class="challenge-result">
-                    <input id="amount" type="text" name="amount" value="<?php echo $this->challenge->rythm; ?>" size="4" /> <?php echo $this->challenge->unit; ?>
-                    &mdash; Aujourd'hui
-                    <button class="green" type="submit">Ajouter</button>
+                    <input id="amount" type="text" name="amount" value="<?php echo $this->challenge->rythm; ?>" class="first" size="4" /> <?php echo $this->challenge->unit; ?>
+                    &nbsp;&mdash;&nbsp;
+                    <input id="date" type="text" name="date" value="<?php echo date('d-m-Y'); ?>" class="datepicker" size="10" />
+                    <button class="green float-right" type="submit">Ajouter</button>
                 </div>
             </form>
         <?php else: ?>
@@ -60,8 +61,8 @@
             <strong><?php echo $result->amount; ?></strong>
             <?php echo $this->challenge->unit; ?> &mdash;
             <em><?php echo $result->date('l d / m / Y'); ?></em>
-            <a class="button red" href="<?php eUrl('result','delete',$id); ?>" onclick="return confirm('Are you sure ?');">Effacer</a>
-            <a class="button dark" href="<?php eUrl('result','edit',$id); ?>" >Editer</a>
+            <a class="button red float-right" href="<?php eUrl('result','delete',$id); ?>" onclick="return confirm('Are you sure ?');">Effacer</a>
+            <a class="button dark float-right" href="<?php eUrl('result','edit',$id); ?>" >Editer</a>
         </div>
     <?php endforeach; ?>    
     </section>

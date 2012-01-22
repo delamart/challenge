@@ -355,15 +355,11 @@ menu > ul > li {
 	background-image: -ms-linear-gradient(bottom, #e0e0e0 0%, #f3f3f3 50%);
 	background-image: linear-gradient(bottom, #e0e0e0 0%, #f3f3f3 50%);
 }
-/*.challenge-result a.button  {
-	 display:  none;
-	 }
-	*/
 .challenge-result a.button,.challenge-result button {
-	/*display:  block;
-	*/
-	float: right;
 	margin-top: -.3em;
+}
+.challenge-result a.button.float-right,.challenge-result button.float-right {
+	float: right;
 	margin-left: .8em;
 }
 .challenge-result strong {
@@ -378,6 +374,8 @@ menu > ul > li {
 	text-align: right;
 	font-weight: bold;
 	margin-top: -.1em;
+}
+.challenge-result input.first {
 	margin-left: -1em;
 }
 h1,h2,h3 {
