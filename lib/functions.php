@@ -11,8 +11,8 @@ function __autoload($class_name) {
 
 function ufix($url = '') {
      $full_url = dirname($_SERVER['SCRIPT_NAME']);
-     if(strlen($url) == 0 || $url[0] !== '/') { $url = '/' . $url; }
-     $full_url .= $url;
+     $url = '/' . ltrim($url,'/');
+     $full_url = $full_url == '/' ? $url : $full_url . $url;
      return $full_url;
 }
 function eUfix($url = '') { echo ufix($url); }

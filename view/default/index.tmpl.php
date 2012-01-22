@@ -1,4 +1,4 @@
-    <section class="grid_2 prefix_2">
+    <section class="grid_2" >
         <div class="with-margin">
             <a class="big button pink full-width" href="<?php eUrl('default','index'); ?>">Accueil</a>
         </div>
@@ -10,23 +10,20 @@
         </div>
     </section>
 
-    <section class="grid_2 suffix_2">
+    <section class="grid_2">
         <div class="with-margin">
             <a class="big button dark full-width" href="<?php eUrl('user','index'); ?>"><?php echo $this->user ? 'Compte' : 'Login'; ?></a>
         </div>
     </section>
 
-    <section class="grid_8 prefix_2 suffix_2">
+    <section class="grid_8">
         <h1>Bienvenue au Walking Challenge <?php echo date('Y')?></h1>
         
         <p class="clear-both">
-            <img border="0" src="http://2.bp.blogspot.com/-ABWDSwBEPek/TxGEERj8fTI/AAAAAAAAA_E/4RIRPFkxhN8/s1600/walkingchallengelogo80.png" class="float-left" alt="logo" />
             Tout propriétaire de chien peut dès à présent s'inscrire au Walking Challenge 2012 ! C'est gratuit et bénévole, la nature à tant à vous offrir avec votre quatre pattes, il vous suffit de vous lancer ... Pour comprendre les principes c'est ici, pour s'inscrire c'est par là ! 
         </p>
 
         <p class="clear-both">
-            <img border="0" src="http://2.bp.blogspot.com/-IYpQeJIMUz0/TwIXqsYBv6I/AAAAAAAAA6A/JxuQ8OzFyF8/s200/Alessonsfrom4legs.jpg" height="149px"  width="200px" class="float-right lightbox" data-target="img01" />
-            <img id="img01" src="http://2.bp.blogspot.com/-IYpQeJIMUz0/TwIXqsYBv6I/AAAAAAAAA6A/JxuQ8OzFyF8/s1600/Alessonsfrom4legs.jpg" style="display:none;" />
             Lessonsfrom4legs furent les premiers challengers. 
             Avec l'arrivée d'une nouvelle année arrivent également de nouveaux challenges et de bonnes résolutions. Pour 2012 nous partageons la nôtre avec vous !
             Dès le mois de janvier, nous vous proposons de participer au Walking Challenge 2012 ! Bien-entendu à tout instant vous pouvez nous rejoindre.
@@ -41,8 +38,6 @@
         </p>
 
         <p class="clear-both"> 
-            <img border="0" height="133px" src="http://1.bp.blogspot.com/-ZlQtb11G-O4/TvicTOCt2jI/AAAAAAAAA24/NpC-TTrAzUU/s200/IMG_5931.JPG" width="200px" class="float-left lightbox" data-target="img03" />
-            <img src="http://1.bp.blogspot.com/-ZlQtb11G-O4/TvicTOCt2jI/AAAAAAAAA24/NpC-TTrAzUU/s1600/IMG_5931.JPG" id="img03" style="display:none;" />
             À la découverte de nouveaux paysages
             Le challenge :
             Chaque participant s'inscrit et décide de son propre objectif en terme de promenade et fixe ses propres règles. L'essentiel est qu'il soit aisément atteignable. Chacun trouvera ses récompenses et son plaisir dans ses propres résultats. La vie de chaque personne et de chaque chien est différente. Ce challenge est personnel et nous sommes là pour nous soutenir peu importe les objectifs et résultats. 

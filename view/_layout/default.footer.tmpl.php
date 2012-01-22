@@ -1,13 +1,12 @@
 </article>
 
-<footer>
+<footer class="clearfix">
     <div class="copyright">&copy;2011-<?php echo date('Y')?> &ndash; <a href="http://www.baikasblog.com">Baika's blog</a></div>
 </footer>
 
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
 <script>window.jQuery || document.write('<script src="<?php eUfix('js/libs/jquery-1.7.1.min.js'); ?>"><\/script>')</script>
 
-<script src="<?php eUfix('js/libs/jquery-ui-1.8.17.custom.min.js'); ?>"></script>
 <script src="<?php eUfix('js/libs/jCProgress-1.0.2.js'); ?>"></script>
 <script src="<?php eUfix('js/libs/jquery.lightbox_me.js'); ?>"></script>
 

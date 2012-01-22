@@ -1,4 +1,4 @@
-        <section class="grid_2 prefix_2">
+        <section class="grid_2">
         <div class="with-margin">
             <a class="big button dark full-width" href="<?php eUrl('default','index'); ?>">Accueil</a>
         </div>
@@ -6,17 +6,17 @@
 
     <section class="grid_4">
         <div class="with-big-margin">
-            <a class="big button pink full-width" href="<?php eUrl('challenge','create'); ?>">Nouveau Challenge</a>
+            <a class="big button green full-width" href="<?php eUrl('challenge','create'); ?>">Nouveau Challenge</a>
         </div>
     </section>
 
-    <section class="grid_2 suffix_2">
+    <section class="grid_2">
         <div class="with-margin">
             <a class="big button dark full-width" href="<?php eUrl('user','index'); ?>"><?php echo $this->user ? 'Compte' : 'Login'; ?></a>
         </div>
     </section>
 
-    <section class="grid_8 prefix_2 suffix_2">
+    <section class="grid_8">
     <?php if(count($this->challenges) == 0): ?><h1>0 Challenges</h1><?php endif; ?>
     <?php foreach($this->challenges as $id => /*@var $challenge ChallengeModel*/ $challenge): ?>
         <div class="challenge with-margin">            

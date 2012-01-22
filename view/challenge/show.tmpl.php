@@ -1,4 +1,4 @@
-    <section class="grid_2 prefix_2">
+    <section class="grid_2">
         <div class="with-margin">
             <a class="big button dark full-width" href="<?php eUrl('default','index'); ?>">Accueil</a>
         </div>
@@ -10,13 +10,13 @@
         </div>
     </section>
 
-    <section class="grid_2 suffix_2">
+    <section class="grid_2">
         <div class="with-margin">
             <a class="big button dark full-width" href="<?php eUrl('user','index'); ?>"><?php echo $this->user ? 'Compte' : 'Login'; ?></a>
         </div>
     </section>
 
-    <section class="grid_8 prefix_2 suffix_2">
+    <section class="grid_8">
         <div class="challenge with-margin">            
             <img class="challenge-avatar" src="<?php echo $this->challenge->user->avatar; ?>" alt="avatar"/>                        
             <div class="challenge-progress with-progress"></div>
@@ -38,13 +38,13 @@
         </div>        
     </section>
     
-    <section class="grid_8 prefix_2 suffix_2">
+    <section class="grid_8">
         <div class="with-margin">
         <?php if($this->challenge->total < $this->challenge->amount): ?>
             <form action="<?php eUrl('challenge','show',$this->id); ?>" method="post">
                 <div class="challenge-result">
                     <input id="amount" type="text" name="amount" value="<?php echo $this->challenge->rythm; ?>" size="4" /> <?php echo $this->challenge->unit; ?>
-                    &mdash;<input id="date" class="datepicker" type="text" name="date" value="<?php echo ''; ?>" size="8" />
+                    &mdash; Aujourd'hui
                     <button class="green" type="submit">Ajouter</button>
                 </div>
             </form>
@@ -54,7 +54,7 @@
         </div>
     </section>    
     
-    <section class="grid_8 prefix_2 suffix_2">
+    <section class="grid_8">
     <?php foreach($this->results as $id => $result): ?>
         <div class="with-margin challenge-result">
             <strong><?php echo $result->amount; ?></strong>
@@ -66,7 +66,7 @@
     <?php endforeach; ?>    
     </section>
     
-    <section class="grid_8 prefix_2 suffix_2">
+    <section class="grid_8">
         <div class="with-margin">
             <a class="big button red full-width" href="<?php eUrl('challenge','delete',$this->id); ?>" onclick="return confirm('Are you sure ?');">
                 Effacer ce Challenge
