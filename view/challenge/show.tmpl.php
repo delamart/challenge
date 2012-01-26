@@ -51,9 +51,9 @@
         <?php if($this->challenge->total < $this->challenge->amount): ?>
             <form action="<?php eUrl('challenge','show',$this->id); ?>" method="post">
                 <div class="challenge-result">
-                    <input id="amount" type="text" name="amount" value="<?php echo $this->challenge->rythm; ?>" class="first" size="4" /> <?php echo $this->challenge->unit; ?>
+                    <input id="amount" type="text" name="amount" value="<?php ePost('amount',$this->challenge->rythm); ?>"  class="<?php eIsError('amount',$this->errors); ?> first" size="4" /> <?php echo $this->challenge->unit; ?>
                     &nbsp;&mdash;&nbsp;
-                    <input id="date" type="text" name="date" value="<?php echo date('d-m-Y'); ?>" class="datepicker" size="12" />
+                    <input id="date" type="text" name="date" value="<?php ePost('date',date('d-m-Y')); ?>"  class="<?php eIsError('date',$this->errors); ?> datepicker" size="12" />
                     <button class="green float-right" type="submit">Ajouter</button>
                 </div>
             </form>

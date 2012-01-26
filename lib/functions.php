@@ -9,13 +9,17 @@ function __autoload($class_name) {
      else { throw new Exception("Could not load $class_name, looking in $path."); }
 }
 
-function ufix($url = '') {
+function ufix($url = '', $append_mtime = false) {
      $full_url = dirname($_SERVER['SCRIPT_NAME']);
      $url = '/' . ltrim($url,'/');
      $full_url = $full_url == '/' ? $url : $full_url . $url;
+     if($append_mtime) {
+        $mtime = filemtime(ConfigLib::g('directory/web') . $url);
+        $full_url .= '?' . $mtime;
+     }
      return $full_url;
 }
-function eUfix($url = '') { echo ufix($url); }
+function eUfix($url = '', $append_mtime = false) { echo ufix($url,$append_mtime); }
 
 function url($controller = null, $view = null, $params = array(), $url_params = array()) {
      $url = ufix(basename($_SERVER['SCRIPT_NAME']) . '/');
@@ -31,11 +35,20 @@ function url($controller = null, $view = null, $params = array(), $url_params = 
 }
 function eUrl($controller = null, $view = null, $params = array(), $url_params = array()) { echo url($controller, $view, $params, $url_params); }
 
-function img($src) {
-     return sprintf('<img src="%s" alt="" />', ufix('img/' . $src));
+function img($src, $class = '') {
+     return sprintf(' <img src="%s" class="%s" alt="%s" /> ', ufix('img/' . $src), $class, basename($src));
 }
+function eImg($src, $class = '') { echo img($src, $class); }
 
 function icon($icon) {
      return img('icons/' . $icon . '.png');
 }
 function eIcon($icon) { echo icon($icon); }
+
+function isError($fieldname, $errors) {
+    if(isset($errors[$fieldname])) return true;
+    return false;
+}
+function eIsError($fieldname, $errors) { echo isError($fieldname, $errors) ? 'error' : ''; }
+
+function ePost($key, $default = '') { echo isset($_POST[$key]) ? $_POST[$key] : $default; }

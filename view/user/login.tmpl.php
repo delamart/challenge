@@ -27,7 +27,7 @@
 
         <h1>Choisissez une m&eacute;thode de login</h1>
                 
-        <form action="<?php eUrl('user','login'); ?>" method="post">
+        <form action="<?php eUrl('user','login'); ?>" method="post" target="_blank">
             <button class="pink big full-width">Login avec Google</button>
         </form> 
         

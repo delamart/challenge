@@ -16,21 +16,22 @@ class RoutingLib {
     public static function isPost() { return self::getHttpMethod() === self::HTTP_METHOD_POST; }
     public static function isPut() { return self::getHttpMethod() === self::HTTP_METHOD_PUT; }
 
-    public static function cleanPost() {
-        $post = $_POST;
-        if(count($_FILES)) {
+    public static function cleanPost($posts = null, $files = null) {
+        $posts = $posts === null ? $_POST : $posts;
+        $files = $files === null ? $_FILES : $files;
+        if(count($files)) {
             $upload_dir = ConfigLib::g('directory/uploads');
-            foreach($_FILES as $id => $file) {
+            foreach($files as $id => $file) {
                 if(!$file['name']) { continue; }
                 do {
                     $upload_file = $upload_dir . DIRECTORY_SEPARATOR . rand(10000,99999) . '-' . $file['name'];
                 } while(file_exists($upload_file));
                 if(@move_uploaded_file($file['tmp_name'], $upload_file)) {
-                    $post[$id] = $upload_file;
+                    $posts[$id] = $upload_file;
                 } else { throw new Exception("Could not upload $upload_file"); }
             }
         }
-        return $post;
+        return $posts;
     }
     
     

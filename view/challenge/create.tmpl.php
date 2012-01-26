@@ -20,16 +20,25 @@
         
         <form action="<?php eUrl('challenge','create'); ?>" method="post" class="challenge-form">
             <h1>Nouveau Challenge</h1>
+            
+            <?php if(count($this->errors)): ?>
+            <div class="with-margin error">
+                <ul>
+                <?php foreach($this->errors as $error) echo "<li>$error</li>"; ?>    
+                </ul>
+            </div>
+            <?php endif; ?>
+            
             <fieldset class="with-margin">
                 <div class="input-line with-margin">
                     <label for="amount">But</label> 
-                    <input id="amount" type="text" name="amount" />
+                    <input id="amount" type="text" name="amount" size="10" value="<?php ePost('amount',0); ?>" class="<?php eIsError('amount',$this->errors); ?>" />
                     <select id="unit" name="unit"><option value="km">Km</option><option value="mile">Mile(s)</option><option value="hour">Heure(s)</option><option value="course">Entra&icirc;nement(s)</option></select>
                     <span class="help">exemple: 365 Km</span>                    
                 </div>
                 <div class="input-line with-margin">
                     <label for="duration">Dur&eacute;e</label> 
-                    <input id="duration" type="text" name="duration" /> 
+                    <input id="duration" type="text" name="duration" size="10" value="<?php ePost('duration',0); ?>" class="<?php eIsError('duration',$this->errors); ?>" /> 
                     <select id="duration_unit" name="duration_unit"><option value="year">Ann&eacute;e(s)</option><option value="month">Mois</option><option value="week">Semaine(s)</option><option value="day">Jour(s)</option></select> 
                     <span class="help">exemple: 365 Jour(s)</span>
                 </div>

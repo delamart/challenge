@@ -27,11 +27,19 @@ class ChallengeController extends ControllerSecureLib
         $coll = new ChallengesModel();
         if(RoutingLib::isPost())
         {
-            $this->challenge = $coll->create(RoutingLib::cleanPost());
-            $this->challenge->__set('iduser', $this->user->pk());
-            $this->challenge->calcRythm();
-            $this->challenge->save();
-            $this->redirect(url('challenge','show',$this->challenge->pk()));
+            $values = $_POST;            
+            if(count($errors = $coll->validate($values)) == 0)
+            {            
+                $this->challenge = $coll->create(RoutingLib::cleanPost($values));
+                $this->challenge->__set('iduser', $this->user->pk());
+                $this->challenge->calcRythm();
+                $this->challenge->save();
+                $this->redirect(url('challenge','show',$this->challenge->pk()));
+            }
+            else
+            {
+                $this->errors = $errors;
+            }            
         }
     }
 
@@ -46,9 +54,10 @@ class ChallengeController extends ControllerSecureLib
         $this->errors = array();
         if(RoutingLib::isPost())
         {
-            if(count($errors = $collr->validate($_POST)) == 0)
+            $values = $_POST;
+            if(count($errors = $collr->validate($values)) == 0)
             {
-                $result = $collr->create($_POST);
+                $result = $collr->create(RoutingLib::cleanPost($values));
                 $result->idchallenge = $id;
                 $result->save();
             }

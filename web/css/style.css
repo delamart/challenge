@@ -1,4 +1,4 @@
-/* @override http://home.ierik.com/challenge/web/css/style.css */
+/* @override http://challenge.baikasblog.com/css/style.css */
 
 /*
  * HTML5 Boilerplate
@@ -411,14 +411,16 @@ h3 {
 .clear-both {
 	clear: both;
 }
-img.float-left {
-	padding-right: 1em;
-	padding-bottom: 1em;
+.center { text-align: center; }
+.picture {
+	margin: 0 1em 1em 1em;
+	padding: .8em .8em .4em .8em;
+	border: 1px solid #ccc;
+	text-align: center;
+	-webkit-box-shadow: 0px 2px 5px #ccc;
 }
-img.float-right {
-	padding-left: 1em;
-	padding-bottom: 1em;
-}
+.picture.float-right { margin-right: 0; }
+.picture.float-left { margin-left: 0; }
 form .input-line {
 	border: 1px solid #ccc;
 	-webkit-border-radius: .4em;
@@ -592,6 +594,20 @@ img.thumb {
 	right: 1em;
 	top: .4em;
 }
+div.error {	
+	background-color: #fe1b18;
+	color: #fff;
+	font-weight: bold;
+	-webkit-border-radius: .4em;
+	-moz-border-radius: .4em;
+	border-radius: .4em;	
+}
+div.error > ul { }	
+div.error > ul > li { }	
+input.error {
+	border-color: #f00;	
+	background-color: #fcc;
+}
 .copyright {
 	text-align: center;
 	margin: 1em;
@@ -600,7 +616,9 @@ img.thumb {
 	color: #ccc;
 	text-decoration: none;
 }
-
+p {
+    text-align: justify;
+}
 
 /* =============================================================================
    Non-semantic helper classes

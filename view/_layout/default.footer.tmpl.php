@@ -10,6 +10,7 @@
 <script src="<?php eUfix('js/libs/jCProgress-1.0.2.js'); ?>"></script>
 <script src="<?php eUfix('js/libs/jquery.lightbox_me.js'); ?>"></script>
 <script src="<?php eUfix('js/libs/jquery-ui-1.8.17.custom.min.js'); ?>"></script>
+<script src="<?php eUfix('js/libs/popuplib.js'); ?>"></script>
 
 <script src="<?php eUfix('js/script.js'); ?>"></script>
 <?php if($this->analytics): ?>

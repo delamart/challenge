@@ -26,4 +26,6 @@ $(document).ready(function(){
     
     $('.datepicker').datepicker({inline: true, dateFormat: 'dd-mm-yy', maxDate: '+0d'});
     
+    var googleOpener = popupManager.createOpener({});    
+    
 });

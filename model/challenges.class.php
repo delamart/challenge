@@ -11,6 +11,17 @@ class ChallengesModel extends CollectionDbLib {
          parent::init();
      }
      
+     public function validate(array &$values)
+     {         
+         $errors = parent::validate($values);
+         
+         $errors = $this->validate_integer($errors, $values, 'amount', true);
+         $errors = $this->validate_integer($errors, $values, 'duration', true);
+         $errors = $this->validate_integer($errors, $values, 'rythm', true);
+         
+         return $errors;
+     }     
+     
      public function getWithUser($pk)
      {
         $where = $this->build_where_pk($pk,'c');

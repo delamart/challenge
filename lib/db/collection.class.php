@@ -104,12 +104,29 @@ abstract class CollectionDbLib
         return $errors;
     }
 
+    protected function validate_integer($errors, &$values, $field, $positive = false)
+    {
+        if(isset($values[$field])) {
+            $v = $values[$field];
+            if(!is_numeric($v)) {
+                $errors[$field] = "$v is not a number";
+            } elseif( (int)$v != $v) {
+                $errors[$field] = "$v is not an integer";
+            } elseif( $positive && (int)$v < 0) {
+                $errors[$field] = "$v is not positive";
+            } else {
+                $values[$field] = (int) $v;
+            }            
+        }        
+        return $errors;
+    }
+
     protected function validate_date($errors, &$values, $field)
     {
         if(isset($values[$field])) {
             $v = $values[$field];
             if(!preg_match('/^([0-9]{1,2})-([0-9]{1,2})-([0-9]{2,4})$/', $v, $matches)) {
-                $errors[$field] = "Invalid date: $v";
+                $errors[$field] = "Invalid date: $v should be DD-MM-YYYY";
             }
             elseif(!checkdate($matches[2], $matches[1], $matches[3]))
             {
