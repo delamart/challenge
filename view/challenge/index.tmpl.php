@@ -15,7 +15,9 @@
             <a class="big button dark full-width" href="<?php eUrl('user','index'); ?>"><?php echo $this->user ? 'Compte' : 'Login'; ?></a>
         </div>
     </section>
+    </article>
 
+    <article class="container_8 clearfix">
     <section class="grid_8">
     <?php if(count($this->challenges) == 0): ?><h1>0 Challenges</h1><?php endif; ?>
     <?php foreach($this->challenges as $id => /*@var $challenge ChallengeModel*/ $challenge): ?>

@@ -15,7 +15,9 @@
             <a class="big button dark full-width" href="<?php eUrl('user','index'); ?>"><?php echo $this->user ? 'Compte' : 'Login'; ?></a>
         </div>
     </section>
+    </article>
 
+    <article class="container_8 clearfix">
     <section class="grid_8">
         <div class="challenge with-margin">            
             <img class="challenge-avatar" src="<?php echo $this->challenge->user->avatar; ?>" alt="avatar"/>                        

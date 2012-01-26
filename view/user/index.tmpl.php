@@ -15,7 +15,9 @@
             <a class="big button pink full-width" href="<?php eUrl('user','index'); ?>"><?php echo $this->user ? 'Compte' : 'Login'; ?></a>
         </div>
     </section>
+    </article>
 
+    <article class="container_8 clearfix">
     <section class="grid_8">
 
         <div class="with-big-margin">
