@@ -32,11 +32,11 @@
         <div class="with-margin clearfix">
             <div class="float-right picture">
             <?php eImg('Alessonsfrom4legs.jpg'); ?><br />
-            Lessonsfrom4legs furent les<br />premiers challengers. 
+            <a href="http://www.lessonsfrom4legs.com/">Lessonsfrom4legs</a> furent les<br />premiers challengers. 
             </div>
             Avec l'arrivée d'une nouvelle année arrivent également de nouveaux challenges et de bonnes résolutions. Pour 2012 nous partageons la nôtre avec vous !
             Dès le mois de janvier, nous vous proposons de participer au Walking Challenge 2012 ! Bien-entendu à tout instant vous pouvez nous rejoindre.
-            Le challenge originel avait été initié par Katie du blog anglophone Lessonsfrom4legs, et nous sommes très heureux de le continuer avec sa permission.            
+            Le challenge originel avait été initié par Katie du blog anglophone <a href="http://www.lessonsfrom4legs.com/">Lessonsfrom4legs</a>, et nous sommes très heureux de le continuer avec sa permission.            
         </div>
 
         <div class="with-margin clearfix"> 
@@ -79,7 +79,7 @@
             </div>
             <b>Pour démarrer :</b><br />
             <ul>
-                <li>Remplissez votre inscription et définissez votre but</li>
+                <li>Remplissez votre inscription et définissez votre challenge</li>
                 <li>Promenez avec votre quatre pattes</li>
                 <li>Mettez régulièrement à jour vos résultats sur le site</li>
                 <li>Pensez à montrer votre soutien au Challenge en diffusant son logo.</li>
@@ -118,23 +118,23 @@
         </div>
 
         <div class="with-margin clearfix"> 
-            Soutenir le Walking Challenge 
+            <b>Soutenir le Walking Challenge</b><br />
             Pour montrer votre participation ou votre soutient au challenge, vous pouvez aussi ajouter le "Walking Challenge Logo" dans le menu de votre site web ou votre blog.
             Voici quelques tailles de logo à choix :
         </div>
 
-        <div class="with-margin clearfix center">
+        <div class="with-big-margin clearfix center">
             <?php eImg('walkingchallengelogo80.png'); ?>
             &nbsp;
             <?php eImg('walkingchallengelogo120.png'); ?>
         </div>
         
         <div class="with-margin clearfix"> 
-            Merci aux auteurs des photos dans l'ordre : Lessonsfrom4legs, Lysal, Baïka's Blog, Naguy, Malouisiane ,Antérift ,Baïka's Blog , l'arche de Sophie. Logo du challenge par Baïka's blog.
+            <em>Merci aux auteurs des photos dans l'ordre : Lessonsfrom4legs, Lysal, Baïka's Blog, Naguy, Malouisiane ,Antérift ,Baïka's Blog , l'arche de Sophie. Logo du challenge par Baïka's blog.</em>
         </div>
 
         <div class="with-margin clearfix">
-            À venir :
+            À venir :<br />
             Les cartes et itinéraires
             L'application RunKeeper
         </div>   
