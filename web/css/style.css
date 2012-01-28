@@ -215,7 +215,9 @@ table { border-collapse: collapse; border-spacing: 0; }
     font-style: normal;
 
 }
-
+a { color: #A021BB; text-decoration: none; }
+a:visited { color: #A021BB; }
+a:hover { color: #A021BB; text-decoration: underline; }
 menu {
 	border: 1px solid #ccc;
 	-webkit-border-radius: 2em;
