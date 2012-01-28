@@ -52,7 +52,7 @@ class UserController extends ControllerSecureLib
                 $user = new UserModel($coll, array(
                     'id' => null,
                     'name' => $attr['namePerson/first'] . ' ' . $attr['namePerson/last'],
-                    'additional' => 'none',
+                    'additional' => '',
                     'email' => $attr['contact/email'],
                     'openid' => $id,
                 ));
