@@ -12,4 +12,16 @@ class UserModel extends ModelDbLib {
         return implode(', ', $add);
     }
     
+    public function getNameWithAdditionals($max = false) {
+        $name = $this->name;
+        $add = $this->getAdditionals();
+        
+        $out = $name . ' & ' . $add;
+        if($max && strlen_pixels($out) > $max) {
+            $out = $name . ' & Co.';
+        } 
+        
+        return $out;
+    }
+    
 }
