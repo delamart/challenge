@@ -7,7 +7,7 @@ class ChallengesModel extends CollectionDbLib {
          $this->obj_class = 'ChallengeModel';
          $this->table = 'challenge';
          $this->pk_column = 'id';
-         $this->columns = array('id', 'iduser', 'amount', 'unit','duration','duration_unit','rythm','rythm_unit');
+         $this->columns = array('id', 'iduser', 'amount', 'unit','duration','duration_unit','rythm','rythm_unit','start');
          parent::init();
      }
      
@@ -18,6 +18,7 @@ class ChallengesModel extends CollectionDbLib {
          $errors = $this->validate_integer($errors, $values, 'amount', true);
          $errors = $this->validate_integer($errors, $values, 'duration', true);
          $errors = $this->validate_integer($errors, $values, 'rythm', true);
+         $errors = $this->validate_date   ($errors, $values, 'start');
          
          return $errors;
      }     
