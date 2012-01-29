@@ -1,4 +1,6 @@
-/* @override http://challenge.baikasblog.com/css/style.css */
+/* @override 
+	http://challenge.baikasblog.com/css/style.css
+*/
 
 /*
  * HTML5 Boilerplate
@@ -504,6 +506,24 @@ form .input-line .help {
 button.full-width {
 	width: 100%;
 }
+.third-width {
+	width: 145px;
+}
+.left-button {
+	margin-right: -5px;
+	width: 150px;
+	-webkit-border-top-right-radius: 0 !important;
+	-webkit-border-bottom-right-radius: 0 !important;
+}
+.middle-button {
+	-webkit-border-radius: 0 !important;
+}
+.right-button {
+	margin-left: -5px;
+	width: 150px;
+	-webkit-border-top-left-radius: 0 !important;
+	-webkit-border-bottom-left-radius: 0 !important;
+}
 .with-margin {
 	margin-bottom: .8em;
 }
@@ -535,9 +555,8 @@ button:hover,.button:hover {
 	background-image: -ms-linear-gradient(bottom, #ddd 0%, #eee 50%);
 	background-image: linear-gradient(bottom, #ddd 0%, #eee 50%);
 }
-a.button:visited {
-	color: #000;
-}
+a.button:visited { color: #000; }
+a.button:hover { text-decoration: none; }
 button.dark,.button.dark {
 	color: #fff;
 	border: 1px solid #000;
