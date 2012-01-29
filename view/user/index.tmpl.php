@@ -27,7 +27,6 @@
                 <div class="input-line with-margin">
                     <label for="name">Nom</label> 
                     <input id="name" type="text" name="name" value="<?php echo $this->user->name; ?>"/>
-                    <span class="help">Votre nom</span>
                 </div>
                 <div class="input-line double with-margin">
                     <label for="additional">Chien(s)</label> 
@@ -37,12 +36,10 @@
                 <div class="input-line with-margin">
                     <label for="email">E-Mail</label> 
                     <input id="email" type="text" name="email" value="<?php echo $this->user->email; ?>" placeholder="me@mail.com"/> 
-                    <span class="help">Votre addresse mail</span>
                 </div>
                 <div class="input-line with-margin">
                     <label for="site">Site</label> 
                     <input id="site" type="text" name="site" value="<?php echo $this->user->site; ?>" placeholder="http://www.example.com" /> 
-                    <span class="help">Votre site internet</span>
                 </div>
                 <div class="input-line double with-margin">
                     <label for="avatar">Avatar</label> 
