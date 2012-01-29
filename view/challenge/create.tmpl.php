@@ -50,6 +50,10 @@
                     <label class="inline" for="rythmW">par semaine</label> <input id="rythmW" class="inline" type="radio" name="rythm_unit" value="week" /> 
                     <label class="inline" for="rythmD">par jour</label> <input id="rythmD" class="inline" type="radio" name="rythm_unit" value="day" checked="checked" /> 
                 </div>
+                <div class="input-line with-margin">
+                    <label for="start">Date de d&eacute;but</label>                 
+                    <input id="start" type="text" name="start" value="<?php echo date('d-m-Y'); ?>"  class="<?php eIsError('start',$this->errors); ?> datepicker" size="12" />
+                </div>                                
             </fieldset>
             
             <button class="big button green full-width" type="submit">Cr&eacute;er ce nouveau Challenge</button>
