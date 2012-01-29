@@ -12,14 +12,16 @@ class ChallengeController extends ControllerSecureLib
         $this->title = 'Challenges';
         $coll = new ChallengesModel();
         $collu = new UsersModel();
-        $res = new ResultsModel();
         
         $cols = $collu->cols('u', UserModel::COL_PREFIX);
         $user_cols = implode(', ', $cols);
         if($user_cols) { $user_cols = ', ' . $user_cols; }        
-        
+              
         $query = sprintf('SELECT c.*, COUNT(c.id) AS nb_results, SUM(r.amount) AS total %s FROM challenge AS c LEFT JOIN(result AS r) ON (c.id = r.idchallenge) LEFT JOIN(%s AS u) ON (c.iduser = u.%s) GROUP BY c.id', $user_cols,$collu->tbl(),$collu->pk());
         $this->challenges = $coll->getCustom($query);
+        
+        $this->mine = null;
+        foreach($this->challenges as $challenge) { if($challenge->user == $this->user) { $this->mine = $challenge->id; } }
     }
 
     public function create() {
