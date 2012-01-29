@@ -5,7 +5,7 @@
     </section>
 
     <section class="grid_4">
-        <div class="with-margin">
+        <div class="with-big-margin">
             <a class="big button dark full-width" href="<?php eUrl('challenge','index'); ?>">Liste des Challenges</a>
         </div>
     </section>
@@ -26,7 +26,7 @@
             <?php eImg('walkingchallengelogo80.png'); ?>
             </div>
             <br />
-            Tout propriétaire de chien peut dès à présent s'inscrire au Walking Challenge 2012 ! C'est gratuit et bénévole, la nature à tant à vous offrir avec votre quatre pattes, il vous suffit de vous lancer ... Pour comprendre les principes c'est ici, pour s'inscrire c'est par là ! 
+            Tout propri&eacute;taire de chien peut d&egrave;s &agrave; pr&eacute;sent s'inscrire au Walking Challenge 2012 ! C'est gratuit et b&eacute;n&eacute;vole, la nature &agrave; tant &agrave; vous offrir avec votre quatre pattes, il vous suffit de vous lancer ... Pour comprendre les principes c'est ici, pour s'inscrire c'est par l&agrave; ! 
         </div>
 
         <div class="with-margin clearfix">
@@ -34,9 +34,9 @@
             <?php eImg('Alessonsfrom4legs.jpg'); ?><br />
             <a href="http://www.lessonsfrom4legs.com/">Lessonsfrom4legs</a> furent les<br />premiers challengers. 
             </div>
-            Avec l'arrivée d'une nouvelle année arrivent également de nouveaux challenges et de bonnes résolutions. Pour 2012 nous partageons la nôtre avec vous !
-            Dès le mois de janvier, nous vous proposons de participer au Walking Challenge 2012 ! Bien-entendu à tout instant vous pouvez nous rejoindre.
-            Le challenge originel avait été initié par Katie du blog anglophone <a href="http://www.lessonsfrom4legs.com/">Lessonsfrom4legs</a>, et nous sommes très heureux de le continuer avec sa permission.            
+            Avec l'arriv&eacute;e d'une nouvelle ann&eacute;e arrivent &eacute;galement de nouveaux challenges et de bonnes r&eacute;solutions. Pour 2012 nous partageons la n&ocirc;tre avec vous !
+            D&egrave;s le mois de janvier, nous vous proposons de participer au Walking Challenge 2012 ! Bien-entendu &agrave; tout instant vous pouvez nous rejoindre.
+            Le challenge originel avait &eacute;t&eacute; initi&eacute; par Katie du blog anglophone <a href="http://www.lessonsfrom4legs.com/">Lessonsfrom4legs</a>, et nous sommes tr&egrave;s heureux de le continuer avec sa permission.            
         </div>
 
         <div class="with-margin clearfix"> 
@@ -45,30 +45,30 @@
             Le bonheur pour eux comme pour nous
             </div>
             <b>Les promenades :</b><br />
-            L'activité physique est excellente et nécessaire pour la santé, le bienêtre physique et mental des chiens comme de leurs humains.
-            Hors les maîtres ont certains jours du mal à caser les promenades dans leur planning pour diverses raisons (temps, famille, santé, travail, etc). Entraidons-nous pour que ces excuses n'entravent pas nos objectifs en terme de ballades, ni le bonheur de nos compagnons !
+            L'activit&eacute; physique est excellente et n&eacute;cessaire pour la sant&eacute;, le bien&ecirc;tre physique et mental des chiens comme de leurs humains.
+            Hors les ma&icirc;tres ont certains jours du mal &agrave; caser les promenades dans leur planning pour diverses raisons (temps, famille, sant&eacute;, travail, etc). Entraidons-nous pour que ces excuses n'entravent pas nos objectifs en terme de ballades, ni le bonheur de nos compagnons !
         </div>
 
         <div class="with-margin clearfix"> 
             <div class="float-left picture">
             <?php eImg('IMG_5931.JPG'); ?><br />
-            À la découverte de nouveaux paysages
+            &Agrave; la d&eacute;couverte de nouveaux paysages
             </div>
             <b>Le challenge :</b><br />
-            Chaque participant s'inscrit et décide de son propre objectif en terme de promenade et fixe ses propres règles. L'essentiel est qu'il soit aisément atteignable. Chacun trouvera ses récompenses et son plaisir dans ses propres résultats. La vie de chaque personne et de chaque chien est différente. Ce challenge est personnel et nous sommes là pour nous soutenir peu importe les objectifs et résultats. 
+            Chaque participant s'inscrit et d&eacute;cide de son propre objectif en terme de promenade et fixe ses propres r&egrave;gles. L'essentiel est qu'il soit ais&eacute;ment atteignable. Chacun trouvera ses r&eacute;compenses et son plaisir dans ses propres r&eacute;sultats. La vie de chaque personne et de chaque chien est diff&eacute;rente. Ce challenge est personnel et nous sommes l&agrave; pour nous soutenir peu importe les objectifs et r&eacute;sultats. 
         </div>
 
         <div class="with-margin clearfix"> 
             <div class="float-right picture">            
             <?php eImg('e1107210.jpg'); ?><br />
-            Des moments de complicité
+            Des moments de complicit&eacute;
             </div>
             <b>Quelques conseils :</b><br />
             <ol>
-                <li>Le défit est exprimé en terme de distance ou d'heures sur un laps de temps total. </li>
-                <li>Le but est de réussir, mieux vaut donc pour la première fois se fixer des buts "minimum" facilement atteignables et de dépasser son objectif aisément avec plaisir.</li>
-                <li>Choisissez une durée de challenge adaptée, parfois une durée plus longue permet plus de souplesse d'un jour à l'autre.</li>
-                <li>Vous pouvez tout à fait choisir un autre challenge d'activité canine comme des heures de training. </li>
+                <li>Le d&eacute;fit est exprim&eacute; en terme de distance ou d'heures sur un laps de temps total. </li>
+                <li>Le but est de r&eacute;ussir, mieux vaut donc pour la premi&egrave;re fois se fixer des buts "minimum" facilement atteignables et de d&eacute;passer son objectif ais&eacute;ment avec plaisir.</li>
+                <li>Choisissez une dur&eacute;e de challenge adapt&eacute;e, parfois une dur&eacute;e plus longue permet plus de souplesse d'un jour &agrave; l'autre.</li>
+                <li>Vous pouvez tout &agrave; fait choisir un autre challenge d'activit&eacute; canine comme des heures de training. </li>
             </ol>
         </div>
         
@@ -77,13 +77,13 @@
             <?php eImg('aglieres110808.jpg'); ?><br />
             Des Challenges pour tous
             </div>
-            <b>Pour démarrer :</b><br />
+            <b>Pour d&eacute;marrer :</b><br />
             <ul>
-                <li>Remplissez votre inscription et définissez votre challenge</li>
+                <li>Remplissez votre inscription et d&eacute;finissez votre challenge</li>
                 <li>Promenez avec votre quatre pattes</li>
-                <li>Mettez régulièrement à jour vos résultats sur le site</li>
-                <li>Pensez à montrer votre soutien au Challenge en diffusant son logo.</li>
-                <li>Si vous le souhaitez, parlez de votre avancée sur votre propre site ou blog.</li>
+                <li>Mettez r&eacute;guli&egrave;rement &agrave; jour vos r&eacute;sultats sur le site</li>
+                <li>Pensez &agrave; montrer votre soutien au Challenge en diffusant son logo.</li>
+                <li>Si vous le souhaitez, parlez de votre avanc&eacute;e sur votre propre site ou blog.</li>
             </ul>
         </div>
 
@@ -93,34 +93,34 @@
             Admirer le monde ensemble
             </div>            
             <b>Chaque pas compte :</b><br />
-            Il est bon de réaliser ce que nous accomplissions à terme. Pour cela, nous vous proposons donc de régulièrement donner des nouvelles de votre challenge. Venez mettre à jour les paliers que vous atteignez sur le site, vous réaliserez ainsi le chemin déjà parcouru et pourrez vous ajuster !
-            Plus vous pratiquerez, plus vous connaîtrez votre routine et vos limites.
+            Il est bon de r&eacute;aliser ce que nous accomplissions &agrave; terme. Pour cela, nous vous proposons donc de r&eacute;guli&egrave;rement donner des nouvelles de votre challenge. Venez mettre &agrave; jour les paliers que vous atteignez sur le site, vous r&eacute;aliserez ainsi le chemin d&eacute;j&agrave; parcouru et pourrez vous ajuster !
+            Plus vous pratiquerez, plus vous conna&icirc;trez votre routine et vos limites.
         </div>
 
         <div class="with-margin clearfix"> 
             <div class="float-left picture">
             <?php eImg('IMG_1256.JPG'); ?><br />
-            Pour trouver l'équilibre
+            Pour trouver l'&eacute;quilibre
             </div>
             <b>Bienvenue parmi nous !</b><br />
             Voir son animal heureux n'a pas de prix !
-            Nous vous souhaitons beaucoup de plaisir à travers de challenge avec votre compagnon à pattes, de bons moments complices, la découverte de beaux paysages et de nouveaux chemins, une vie plus saine, le bien-être de l'exercice et de la nature, une gestion sympathique de votre temps et tous les bénéfices et bons souvenirs que vous en garderez. 
+            Nous vous souhaitons beaucoup de plaisir &agrave; travers de challenge avec votre compagnon &agrave; pattes, de bons moments complices, la d&eacute;couverte de beaux paysages et de nouveaux chemins, une vie plus saine, le bien-&ecirc;tre de l'exercice et de la nature, une gestion sympathique de votre temps et tous les b&eacute;n&eacute;fices et bons souvenirs que vous en garderez. 
         </div>
 
         <div class="with-margin clearfix"> 
             <div class="float-right picture">
             <?php eImg('archesophie2.jpg'); ?><br />
-            Le bien-être des promenades
+            Le bien-&ecirc;tre des promenades
             </div>
-            <b>Votre expérience dans le Walking Challenge</b><br />
-            Biensûr vous pouvez partager votre progression avec nous mais également autour de vous. Invitez vos connaissances à participer au Walking Challenge et n'hésitez pas à balader de temps en temps ensemble.
-            Nous vous invitons à montrer sur votre propre site interne vos photos et chemins de ballades, parler de vos expériences et garder trace de tous ces bons moments avec votre petit compagnon.
+            <b>Votre exp&eacute;rience dans le Walking Challenge</b><br />
+            Biens&ucirc;r vous pouvez partager votre progression avec nous mais &eacute;galement autour de vous. Invitez vos connaissances &agrave; participer au Walking Challenge et n'h&eacute;sitez pas &agrave; balader de temps en temps ensemble.
+            Nous vous invitons &agrave; montrer sur votre propre site interne vos photos et chemins de ballades, parler de vos exp&eacute;riences et garder trace de tous ces bons moments avec votre petit compagnon.
         </div>
 
         <div class="with-margin clearfix"> 
             <b>Soutenir le Walking Challenge</b><br />
             Pour montrer votre participation ou votre soutient au challenge, vous pouvez aussi ajouter le "Walking Challenge Logo" dans le menu de votre site web ou votre blog.
-            Voici quelques tailles de logo à choix :
+            Voici quelques tailles de logo &agrave; choix :
         </div>
 
         <div class="with-big-margin clearfix center">
@@ -130,12 +130,12 @@
         </div>
         
         <div class="with-margin clearfix"> 
-            <em>Merci aux auteurs des photos dans l'ordre : Lessonsfrom4legs, Lysal, Baïka's Blog, Naguy, Malouisiane ,Antérift ,Baïka's Blog , l'arche de Sophie. Logo du challenge par Baïka's blog.</em>
+            <em>Merci aux auteurs des photos dans l'ordre : Lessonsfrom4legs, Lysal, Ba&iuml;ka's Blog, Naguy, Malouisiane ,Ant&eacute;rift ,Ba&iuml;ka's Blog , l'arche de Sophie. Logo du challenge par Ba&iuml;ka's blog.</em>
         </div>
 
         <div class="with-margin clearfix">
-            À venir :<br />
-            Les cartes et itinéraires
+            &Agrave; venir :<br />
+            Les cartes et itin&eacute;raires
             L'application RunKeeper
         </div>   
     </section>
