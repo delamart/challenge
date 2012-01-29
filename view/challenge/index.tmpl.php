@@ -6,7 +6,11 @@
 
     <section class="grid_4">
         <div class="with-big-margin">
+            <?php if($this->mine): ?>
+            <a class="big button pink full-width" href="<?php eUrl('challenge','show',$this->mine); ?>">Mon Challenge</a>
+            <?php else: ?>
             <a class="big button green full-width" href="<?php eUrl('challenge','create'); ?>">Nouveau Challenge</a>
+            <?php endif; ?>
         </div>
     </section>
 
@@ -18,9 +22,11 @@
     </article>
 
     <article class="container_8 clearfix">
-    <section class="grid_8">
-    <?php if(count($this->challenges) == 0): ?><h1>0 Challenges</h1><?php endif; ?>
-    <?php foreach($this->challenges as $id => /*@var $challenge ChallengeModel*/ $challenge): ?>
+    <section class="grid_8">  
+    <?php if(count($this->challenges) == 0): ?>
+        <h1>0 Challenges trouv&eacute;</h1>
+    <?php else: ?>
+    <?php foreach($this->challenges as $id => /*@var $challenge ChallengeModel*/ $challenge): ?>        
         <div class="challenge with-margin">            
             <img class="challenge-avatar" src="<?php echo $challenge->user->avatar; ?>" alt="avatar"/>                        
             <div class="challenge-progress"></div>
@@ -28,8 +34,8 @@
             
             <p class="challenge-name">
                 <?php if($challenge->user): ?>
-                    <?php if($this->user == $challenge->user) { echo '<a href="' . url('user','index') . '">'; } ?>
-                    <?php echo $challenge->user->name; ?> <?php echo $challenge->user->getAdditionals() ? '&amp; ' . $challenge->user->getAdditionals() : ''; ?>
+                    <?php if($this->user == $challenge->user) { printf('<a href="%s" title="%s">',url('user','index'),$challenge->user->getNameWithAdditionals()); } ?>
+                    <?php echo $challenge->user->getNameWithAdditionals(280); ?>
                     <?php if($this->user == $challenge->user) { echo '</a>'; } ?>
                 <?php else: ?>
                     none
@@ -45,6 +51,7 @@
             </p>            
         </div>        
     <?php endforeach; ?>
+    <?php endif; ?>
     </section>
     
     

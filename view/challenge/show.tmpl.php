@@ -19,6 +19,9 @@
 
     <article class="container_8 clearfix">
     <section class="grid_8">
+        <h1>
+            Mon Challenge 
+        </h1>
         <div class="challenge with-margin">            
             <img class="challenge-avatar" src="<?php echo $this->challenge->user->avatar; ?>" alt="avatar"/>                        
             <div class="challenge-progress"></div>
@@ -26,7 +29,7 @@
             
             <p class="challenge-name">
                 <?php if($this->challenge->user): ?>
-                    <?php echo $this->challenge->user->name; ?> <?php echo $this->challenge->user->getAdditionals() ? '&amp; ' . $this->challenge->user->getAdditionals() : ''; ?>
+                    <?php echo $this->challenge->user->getNameWithAdditionals(280); ?>                
                 <?php else: ?>
                     none
                 <?php endif; ?>
@@ -55,7 +58,7 @@
                 <div class="challenge-result">
                     <input id="amount" type="text" name="amount" value="<?php ePost('amount',$this->challenge->rythm); ?>"  class="<?php eIsError('amount',$this->errors); ?> first" size="4" /> <?php echo $this->challenge->unit; ?>
                     &nbsp;&mdash;&nbsp;
-                    <input id="date" type="text" name="date" value="<?php ePost('date',date('d-m-Y')); ?>"  class="<?php eIsError('date',$this->errors); ?> datepicker" size="12" />
+                    <input id="date" type="text" name="date" value="<?php ePost('date',date('d-m-Y')); ?>"  class="<?php eIsError('date',$this->errors); ?> datepicker" size="12" data-max="+0d" />
                     <button class="green float-right" type="submit">Ajouter</button>
                 </div>
             </form>
