@@ -24,7 +24,15 @@ $(document).ready(function(){
         e.preventDefault();
     }).css('cursor', 'pointer');    
     
-    $('.datepicker').datepicker({inline: true, dateFormat: 'dd-mm-yy', maxDate: '+0d'});
+    $('.datepicker').each(function() {
+        el = $(this);
+        max = el.attr('data-max');
+        min = el.attr('data-min');
+        opts = {inline: true, dateFormat: 'dd-mm-yy'};
+        if(max) { opts['maxDate'] = max; }
+        if(min) { opts['minDate'] = min; }
+        el.datepicker(opts);
+    });
     
     var googleOpener = popupManager.createOpener({});    
     
