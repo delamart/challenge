@@ -103,6 +103,7 @@ class UserController extends ControllerSecureLib
                 $user->save();
             }
             $this->setUser($user);
+            return $this->redirect(url('user','index'));
         }                    
     }
     
@@ -116,9 +117,6 @@ class UserController extends ControllerSecureLib
             $stmt->execute(array($post['email']));
             $user = $stmt->fetch(PDO::FETCH_ASSOC);
             if($user) { 
-                echo $post['password'].' - ';
-                echo $user['password'].' - ';
-                echo password_hash($post['password'],$user['password']).' - ';
                 if(password_hash($post['password'],$user['password'],true))
                 {
                     $this->user = $coll->create($user);

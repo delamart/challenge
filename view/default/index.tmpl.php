@@ -26,7 +26,7 @@
             <?php eImg('walkingchallengelogo80.png'); ?>
             </div>
             <br />
-            Tout propri&eacute;taire de chien peut d&egrave;s &agrave; pr&eacute;sent nous rejoindre au Walking Challenge 2012 ! C'est gratuit et b&eacute;n&eacute;vole, la nature &agrave; tant &agrave; nous offrir avec nos quatre pattes, il suffit de se lancer ... Pour comprendre les principes c'est ici, pour s'inscrire c'est par l&agrave; ! 
+            Tout propri&eacute;taire de chien peut d&egrave;s &agrave; pr&eacute;sent nous rejoindre au Walking Challenge 2012 ! C'est gratuit et b&eacute;n&eacute;vole, la nature &agrave; tant &agrave; nous offrir avec nos quatre pattes, il suffit de se lancer ... Pour comprendre les principes c'est ici, pour s'inscrire <a href="<?php eUrl('user','index'); ?>">c'est par l&agrave; !</a> 
         </div>
 
         <div class="with-margin clearfix">

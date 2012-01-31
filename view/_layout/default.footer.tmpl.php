@@ -1,7 +1,7 @@
 </article>
 
 <footer class="clearfix">
-    <div class="copyright">&copy;2011-<?php echo date('Y')?> &ndash; <a href="http://www.baikasblog.com">Baika's blog</a></div>
+    <div class="copyright">&copy;2011-<?php echo date('Y')?> &ndash; <a href="http://www.baikasblog.com">Baika's blog</a> &ndash; <a target="_blank" href="http://challenge.baikasblog.com">Nouvelle Fen&ecirc;tre</a></div>
 </footer>
 
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>

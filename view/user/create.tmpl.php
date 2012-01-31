@@ -29,7 +29,7 @@
     <?php endif; ?>
 
     <form action="<?php eUrl('user','create'); ?>" method="post" class="challenge-form" >            
-        <h1>Login Challenge</h1>
+        <h1>Nouveau Login Challenge</h1>
         <fieldset class="with-margin">
             <div class="input-line with-margin">
                 <label for="email">E-Mail</label> 

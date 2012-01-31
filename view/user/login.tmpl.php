@@ -12,7 +12,13 @@
 
     <section class="grid_2">
         <div class="with-margin">
-            <a class="big button pink full-width" href="<?php eUrl('user','index'); ?>"><?php echo $this->user ? 'Compte' : 'Login'; ?></a>
+        <?php if($this->user): ?>
+            <a class="big button pink full-width" href="<?php eUrl('user','index'); ?>">Compte</a>
+        <?php elseif($this->type == 'challenge'): ?>
+            <a class="big button pink full-width" href="<?php eUrl('user','login'); ?>">Choisir</a>
+        <?php else: ?>
+            <a class="big button pink full-width" href="<?php eUrl('user','login'); ?>">Login</a>
+        <?php endif; ?>
         </div>
     </section>
     </article>
@@ -61,7 +67,9 @@
             <button type="submit" class="pink big full-width">Login avec Google</button>
         </form> 
 
-        <a href="<?php eUrl('user','login','challenge'); ?>" class="button full-width pink big">Login avec un compte Challenge</a>
+        <a href="<?php eUrl('user','login','challenge'); ?>" class="button full-width pink big with-margin">Login avec un compte Challenge</a>
+        
+        <a href="<?php eUrl('user','create'); ?>" class="button full-width green big with-margin">Cr&eacute;er un compte Challenge</a>
         
     <?php endif; ?>
     </section>
