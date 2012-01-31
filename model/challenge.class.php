@@ -35,7 +35,7 @@ class ChallengeModel extends ModelDbLib {
         {
             case self::RYTHM_DAY: return 1;
             case self::RYTHM_WEEK: return 7;
-            case self::RYTHM_MONTH: return 30;
+            case self::RYTHM_MONTH: return (365/12);
             default: return 1;
         }        
     }
@@ -46,7 +46,7 @@ class ChallengeModel extends ModelDbLib {
         {
             case self::UNIT_DAY: return 1;
             case self::UNIT_WEEK: return 7;
-            case self::UNIT_MONTH: return 30;
+            case self::UNIT_MONTH: return (365/12);
             case self::UNIT_YEAR: return 365;
             default: return 1;
         }                
@@ -68,6 +68,37 @@ class ChallengeModel extends ModelDbLib {
             $this->user = $user;
         }
         
+    }
+    
+    public function start($format = 'Y-m-d H:i:s') {
+        if(!$this->start) { return null; }
+        return date($format,  strtotime($this->start));
+    }    
+
+    public function days() {
+        if(!$this->start) { return null; }
+        $diff = mktime(0,0,0) - $this->start('U');
+        return date('z',$diff) + 1;
+    }    
+    
+    public function amount_left() {
+        return max(array(0,$this->amount - $this->total));
+    }
+    
+    public function duration_total() {
+        return round($this->duration * $this->unitMult($this->duration_unit) / $this->rythmMult($this->rythm_unit));
+    }
+    
+    public function duration_done() {
+        return ceil($this->days() / $this->rythmMult($this->rythm_unit));
+    }
+
+    public function duration_left() {
+        return max(array(0,$this->duration_total() - $this->duration_done()));
+    }
+    
+    public function rythm_now() {
+        return round($this->total / max(array(1,$this->duration_done())), 2);
     }
     
 }

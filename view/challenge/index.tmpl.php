@@ -28,15 +28,15 @@
     <?php else: ?>
     <?php foreach($this->challenges as $id => /*@var $challenge ChallengeModel*/ $challenge): ?>        
         <div class="challenge with-margin">            
-            <img class="challenge-avatar" src="<?php echo $challenge->user->avatar; ?>" alt="avatar"/>                        
+            <img class="challenge-avatar" src="<?php echo $challenge->user->avatar ? $challenge->user->avatar : ufix('/img/walkingchallengelogo120.png'); ?>" alt="avatar"/>                        
             <div class="challenge-progress"></div>
             <div class="challenge-amount"><?php echo $challenge->total ? $challenge->total : 0; ?> <small><?php echo $challenge->unit; ?></small></div>
             
             <p class="challenge-name">
                 <?php if($challenge->user): ?>
-                    <?php if($this->user == $challenge->user) { printf('<a href="%s" title="%s">',url('user','index'),$challenge->user->getNameWithAdditionals()); } ?>
+                    <?php if($challenge->user->site) { printf('<a href="%s" title="%s">',$challenge->user->site,$challenge->user->site); } ?>
                     <?php echo $challenge->user->getNameWithAdditionals(280); ?>
-                    <?php if($this->user == $challenge->user) { echo '</a>'; } ?>
+                    <?php if($challenge->user->site) { echo '</a>'; } ?>
                 <?php else: ?>
                     none
                 <?php endif; ?>

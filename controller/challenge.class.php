@@ -25,7 +25,7 @@ class ChallengeController extends ControllerSecureLib
     }
 
     public function create() {
-        $this->title = 'New Challenge';
+        $this->title = 'Nouveau Challenge';
         $coll = new ChallengesModel();
         if(RoutingLib::isPost())
         {
@@ -47,6 +47,7 @@ class ChallengeController extends ControllerSecureLib
 
     public function show($id) {
         $this->id = $id;
+        $this->title = 'Mon Challenge';
         $coll = new ChallengesModel();
         $collr = new ResultsModel();
         $this->challenge = $coll->getWithUser($id);
@@ -72,7 +73,6 @@ class ChallengeController extends ControllerSecureLib
         $this->results = $this->challenge->getResults();
         $this->challenge->total = 0;
         foreach($this->results as $r) { $this->challenge->total += $r->amount; }
-        $this->title = 'Challenge';                
     }
     
     public function delete($id) {

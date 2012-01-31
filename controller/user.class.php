@@ -5,14 +5,17 @@ class UserController extends ControllerSecureLib
     
     public function __construct($public_views = array())
     {
-        parent::__construct(array('login'));
+        parent::__construct(array('login','create'));
     }
 
 
     public function index() {
         $this->user = $this->getUser();
+        $this->title = $this->user->name;
         if(RoutingLib::isPost()) {
             $post = RoutingLib::cleanPost();
+            if(!$post['password']) { unset($post['password']); }
+            else { $post['password'] = password_hash($post['password']); }
             if(isset($post['avatar']) && file_exists($post['avatar'])) {
                 $url =  '/img/uploads/' . $this->user->id . '-avatar.jpg';
                 $target = ConfigLib::g('directory/web') . $url;
@@ -25,7 +28,48 @@ class UserController extends ControllerSecureLib
         }
     }
 
-    public function login() {
+    public function login($type) {
+        $this->title = 'login';
+        $this->type = $type;
+        switch ($type) {
+            case 'google' : $this->googleLogin(); break;
+            case 'challenge' : $this->challengeLogin(); break;
+        }
+        $this->user = $this->getUser();
+    }
+
+    public function create() {
+        if(RoutingLib::isPost()) {
+            $coll = new UsersModel();
+            $values = $_POST;            
+            if(count($this->errors = $coll->validate($values)) == 0)
+            {            
+                $post = RoutingLib::cleanPost();
+                $db = DbLib::getInstance();                
+                $q = sprintf('SELECT * FROM %s WHERE email LIKE ? AND password IS NOT NULL LIMIT 1', $coll->tbl()); 
+                $stmt = $db->prepare($q);
+                $stmt->execute(array($post['email']));
+                $user = $stmt->fetch(PDO::FETCH_ASSOC);
+                if($user)
+                {
+                    $this->errors = array('Cet e-mail est déjà enregistré');
+                }    
+                else
+                {
+                    $post['password'] = password_hash($post['password']);
+                    if(preg_match('/^(.+)@/', $post['email'], $matches)) { $post['name'] = $matches[1]; }
+                    //$post['site'] = '';
+                    $this->user = $coll->create($post);
+                    $this->user->save();
+                    $this->setUser($this->user);
+                    return $this->redirect(url('user','index'));
+                }
+            }
+        }        
+        //return $this->redirect(url('user','login','challenge'));
+    }
+    
+    private function googleLogin() {
         $this->openid = new OpenidPluginLib($_SERVER["SERVER_NAME"]);
         if(!$this->openid->mode) {
             //no login yet
@@ -59,11 +103,35 @@ class UserController extends ControllerSecureLib
                 $user->save();
             }
             $this->setUser($user);
-        }            
-        $this->user = $this->getUser();
+        }                    
     }
     
+    private function challengeLogin() {
+        if(RoutingLib::isPost()) {
+            $coll = new UsersModel();
+            $post = RoutingLib::cleanPost();
+            $db = DbLib::getInstance();
+            $q = sprintf('SELECT * FROM %s WHERE email LIKE ? AND password IS NOT NULL LIMIT 1', $coll->tbl()); 
+            $stmt = $db->prepare($q);
+            $stmt->execute(array($post['email']));
+            $user = $stmt->fetch(PDO::FETCH_ASSOC);
+            if($user) { 
+                echo $post['password'].' - ';
+                echo $user['password'].' - ';
+                echo password_hash($post['password'],$user['password']).' - ';
+                if(password_hash($post['password'],$user['password'],true))
+                {
+                    $this->user = $coll->create($user);
+                    $this->setUser($this->user);
+                    return $this->redirect(url('user','index'));
+                }
+            }
+            $this->errors = array('Could not find user/password');
+        }        
+    }
+
     public function logout() {
+        $this->title = 'logout';
         if(RoutingLib::isPost()) {
             $this->setUser(null);
         }

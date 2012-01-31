@@ -17,8 +17,10 @@ class KernelLib {
     
 	private function __construct() {
         session_start();
-        $this->config = ConfigLib::getInstance();
-        $this->routing = new RoutingLib();        
+        $this->config = ConfigLib::getInstance();        
+        $this->routing = new RoutingLib();
+        
+        date_default_timezone_set($this->config->g('default/timezone','UTC'));
     }		
 	
 	public function run() {

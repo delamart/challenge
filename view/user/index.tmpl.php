@@ -37,6 +37,12 @@
                     <label for="email">E-Mail</label> 
                     <input id="email" type="text" name="email" value="<?php echo $this->user->email; ?>" placeholder="me@mail.com"/> 
                 </div>
+                <?php if($this->user->password): ?>
+                <div class="input-line with-margin">
+                    <label for="password">Mot de Passe</label> 
+                    <input id="password" type="password" name="password" value="" placeholder="******" /> 
+                </div>
+                <?php endif; ?>
                 <div class="input-line with-margin">
                     <label for="site">Site</label> 
                     <input id="site" type="text" name="site" value="<?php echo $this->user->site; ?>" placeholder="http://www.example.com" /> 

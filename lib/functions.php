@@ -124,3 +124,60 @@ function strlen_pixels($text) {
     } 
     return $total; 
 } 
+
+// http://www.php.net/manual/en/function.date-diff.php#101771
+function dateDifference($startDate, $endDate = null) 
+{ 
+    if($endDate === null) { $endDate = time(); }
+
+    if ($startDate === false || $startDate < 0 || $endDate === false || $endDate < 0 || $startDate > $endDate) 
+        return false; 
+
+    $years = date('Y', $endDate) - date('Y', $startDate); 
+
+    $endMonth = date('n', $endDate); 
+    $startMonth = date('n', $startDate); 
+    
+    // Calculate months 
+    $months = $endMonth - $startMonth; 
+    
+    if ($months < 0)  { 
+        $months += 12; 
+        $years--; 
+    } 
+    if ($years < 0) 
+        return false; 
+    
+    // Calculate the days 
+    $offsets = array(); 
+    if ($years > 0) 
+        $offsets[] = $years . (($years == 1) ? ' year' : ' years'); 
+    if ($months > 0) 
+        $offsets[] = $months . (($months == 1) ? ' month' : ' months'); 
+    $offsets = count($offsets) > 0 ? '+' . implode(' ', $offsets) : 'now'; 
+
+    $days = $endDate - strtotime($offsets, $startDate); 
+    $days = date('z', $days);    
+
+    return array($years, $months, $days); 
+}
+
+function eDateDifference($startDate, $endDate = null)
+{
+    $split = dateDifference($startDate, $endDate);
+    if($split === false) { echo 'invalid dates'; return; }
+    $out = '';
+    $out .= $split[0] ? $split[0] . ($split[0] > 1 ? ' years ' : ' year ') : '';
+    $out .= $split[1] ? $split[1] . ($split[1] > 1 ? ' months ' : ' month ') : '';
+    $out .= $split[2] ? $split[2] . ($split[2] > 1 ? ' days ' : ' day ') : ' 0 days ';
+    echo trim($out);
+}
+
+function password_hash($password, $salt = null, $bool = false) {
+    if($salt === null) { $salt = '$2a$08$'.substr(str_replace('+', '.', base64_encode(pack('N4', mt_rand(), mt_rand(), mt_rand(), mt_rand()))), 0, 22); }
+    if($bool)
+    {
+        return strcmp(crypt($password,$salt),$salt) === 0;
+    }    
+    return crypt($password,$salt);    
+}

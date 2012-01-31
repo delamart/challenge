@@ -140,6 +140,16 @@ abstract class CollectionDbLib
         return $errors;
     }
     
+    protected function validate_email($errors, &$values, $field)
+    {
+        if(isset($values[$field])) {
+            $v = $values[$field];
+            if(!preg_match('/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i', $v)) {
+                $errors[$field] = "Invalid email: $v";
+            }
+        }        
+        return $errors;
+    }
     
     public function save(ModelDbLib $model) {
         $id = $model->__get($this->pk_column);

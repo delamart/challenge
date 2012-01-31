@@ -4,7 +4,7 @@
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 
-	<title><?php echo $this->title; ?></title>
+	<title><?php echo $this->title ? $this->title . ' | ' : ''; ?>baikasblog.com</title>
 	<meta name="description" content="Challenge">
 	<meta name="author" content="baikasblog.com">
 

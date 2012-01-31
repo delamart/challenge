@@ -26,7 +26,7 @@
             <?php eImg('walkingchallengelogo80.png'); ?>
             </div>
             <br />
-            Tout propri&eacute;taire de chien peut d&egrave;s &agrave; pr&eacute;sent s'inscrire au Walking Challenge 2012 ! C'est gratuit et b&eacute;n&eacute;vole, la nature &agrave; tant &agrave; vous offrir avec votre quatre pattes, il vous suffit de vous lancer ... Pour comprendre les principes c'est ici, pour s'inscrire c'est par l&agrave; ! 
+            Tout propri&eacute;taire de chien peut d&egrave;s &agrave; pr&eacute;sent nous rejoindre au Walking Challenge 2012 ! C'est gratuit et b&eacute;n&eacute;vole, la nature &agrave; tant &agrave; nous offrir avec nos quatre pattes, il suffit de se lancer ... Pour comprendre les principes c'est ici, pour s'inscrire c'est par l&agrave; ! 
         </div>
 
         <div class="with-margin clearfix">
@@ -133,10 +133,5 @@
             <em>Merci aux auteurs des photos dans l'ordre : Lessonsfrom4legs, Lysal, Ba&iuml;ka's Blog, Naguy, Malouisiane ,Ant&eacute;rift ,Ba&iuml;ka's Blog , l'arche de Sophie. Logo du challenge par Ba&iuml;ka's blog.</em>
         </div>
 
-        <div class="with-margin clearfix">
-            &Agrave; venir :<br />
-            Les cartes et itin&eacute;raires
-            L'application RunKeeper
-        </div>   
     </section>
     
