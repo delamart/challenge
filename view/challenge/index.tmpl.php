@@ -34,7 +34,7 @@
             
             <p class="challenge-name">
                 <?php if($challenge->user): ?>
-                    <?php if($challenge->user->site) { printf('<a href="%s" title="%s">',(substr($challenge->user->site,0,7) == 'http://' ? '' : 'http://') . $challenge->user->site,$challenge->user->site); } ?>
+                    <?php if($challenge->user->site) { printf('<a target="_parent" href="%s" title="%s">',(substr($challenge->user->site,0,7) == 'http://' ? '' : 'http://') . $challenge->user->site,$challenge->user->site); } ?>
                     <?php echo $challenge->user->getNameWithAdditionals(280); ?>
                     <?php if($challenge->user->site) { echo '</a>'; } ?>
                 <?php else: ?>

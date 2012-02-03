@@ -10,6 +10,8 @@ class UserController extends ControllerSecureLib
 
 
     public function index() {
+        $extra = '';
+        $this->errors = array();
         $this->user = $this->getUser();
         $this->title = $this->user->name;
         if(RoutingLib::isPost()) {
@@ -17,14 +19,33 @@ class UserController extends ControllerSecureLib
             if(!$post['password']) { unset($post['password']); }
             else { $post['password'] = password_hash($post['password']); }
             if(isset($post['avatar']) && file_exists($post['avatar'])) {
-                $url =  '/img/uploads/' . $this->user->id . '-avatar.jpg';
-                $target = ConfigLib::g('directory/web') . $url;
-                $url = ufix($url);
-                rename($post['avatar'], $target);
-                $post['avatar'] = $url;
+                
+                if(filesize($post['avatar']) > (200 * 1024)) 
+                {
+                    $this->errors[] = 'Photo trop grande, maximum 200 KBytes.';
+                    unlink($post['avatar']);
+                    unset($post['avatar']);
+                }
+                elseif( strcasecmp(substr($post['avatar'],-4),'.jpg') !== 0 && strcasecmp(substr($post['avatar'],-4),'.png') !== 0 )
+                {
+                    $this->errors[] = 'Seulement JPG et PNG authorisé.';
+                    unlink($post['avatar']);
+                    unset($post['avatar']);
+                }
+                else
+                {
+                    $url =  '/img/uploads/' . $this->user->id . '-avatar.jpg';
+                    $target = ConfigLib::g('directory/web') . $url;
+                    $url = ufix($url);
+                    rename($post['avatar'], $target);
+                    $post['avatar'] = $url;
+                    $extra .= 'Photo ajoutee' ."\n";
+                }
             }            
             $this->user->update($post);
             $this->user->save();
+            $extra .= 'Changements Sauvegarde' ."\n";
+            $this->extra = $extra;
         }
     }
 

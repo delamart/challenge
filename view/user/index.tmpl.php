@@ -19,10 +19,19 @@
 
     <article class="container_8 clearfix">
     <section class="grid_8">
-
         <div class="with-big-margin">
         <form action="<?php eUrl('user','index'); ?>" method="post" class="challenge-form" enctype="multipart/form-data">
             <h1>Mon Compte</h1>
+            
+            <?php if(count($this->errors)): ?>
+            <div class="with-margin error">
+                <ul>
+                <?php foreach($this->errors as $error) echo "<li>$error</li>"; ?>    
+                </ul>
+            </div>
+            <?php endif; ?>
+            
+            
             <fieldset class="with-margin">
                 <div class="input-line with-margin">
                     <label for="name">Nom</label> 
@@ -66,3 +75,6 @@
         </form> 
         
     </section>
+        
+    <?php echo $this->extra ? '<script>alert('.json_encode($this->extra).');</script>' : ''; ?>
+        

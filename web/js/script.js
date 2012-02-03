@@ -36,6 +36,4 @@ $(document).ready(function(){
         el.datepicker(opts);
     });
     
-    var googleOpener = popupManager.createOpener({});    
-    
 });
