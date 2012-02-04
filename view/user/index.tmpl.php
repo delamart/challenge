@@ -61,7 +61,7 @@
                     <input id="avatar" type="file" name="avatar" />
                     <?php if($this->user->avatar): ?>
                     <img src="<?php echo $this->user->avatar; ?>" class="thumb lightbox" alt="avatar" data-target="avatar-image" />
-                    <img id="avatar-image" style="display:none;" src="<?php echo $this->user->avatar; ?>" alt="avatar" />
+                    <img id="avatar-image" style="display:none;" src="<?php echo str_replace('-thumb', '', $this->user->avatar); ?>" alt="avatar" />
                     <?php endif; ?>
                 </div>
             </fieldset>

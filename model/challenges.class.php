@@ -44,5 +44,13 @@ class ChallengesModel extends CollectionDbLib {
         
         return $this->getCustom(sprintf('SELECT c.* %s FROM %s AS c LEFT JOIN(%s AS u) ON (c.iduser = u.%s) %s %s',$user_cols, $this->table, $coll->tbl(), $coll->pk(), $where, $limit));
      }
+     
+     public function getForUser($iduser)
+     {
+         $where = sprintf('iduser = %d',$iduser);
+         $coll = $this->getAllWithUsers($where, 1);
+         if(count($coll)) { return reset($coll); }
+         return null;         
+     }
     
 }

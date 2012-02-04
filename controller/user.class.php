@@ -5,7 +5,9 @@ class UserController extends ControllerSecureLib
     
     public function __construct($public_views = array())
     {
-        parent::__construct(array('login','create'));
+        $public_views[] = 'login';
+        $public_views[] = 'create';
+        parent::__construct($public_views);
     }
 
 
@@ -19,14 +21,14 @@ class UserController extends ControllerSecureLib
             if(!$post['password']) { unset($post['password']); }
             else { $post['password'] = password_hash($post['password']); }
             if(isset($post['avatar']) && file_exists($post['avatar'])) {
-                
+                $ext = substr($post['avatar'],-4);
                 if(filesize($post['avatar']) > (200 * 1024)) 
                 {
                     $this->errors[] = 'Photo trop grande, maximum 200 KBytes.';
                     unlink($post['avatar']);
                     unset($post['avatar']);
                 }
-                elseif( strcasecmp(substr($post['avatar'],-4),'.jpg') !== 0 && strcasecmp(substr($post['avatar'],-4),'.png') !== 0 )
+                elseif( strcasecmp($ext,'.jpg') !== 0 && strcasecmp($ext,'.png') !== 0 )
                 {
                     $this->errors[] = 'Seulement JPG et PNG authorisé.';
                     unlink($post['avatar']);
@@ -34,11 +36,21 @@ class UserController extends ControllerSecureLib
                 }
                 else
                 {
-                    $url =  '/img/uploads/' . $this->user->id . '-avatar.jpg';
+                    $md5 = md5_file($post['avatar']);
+                    $url =  '/img/uploads/' . $this->user->id . '-' . $md5 . '-avatar'.$ext;
+                    $url_thumb =  '/img/uploads/' . $this->user->id . '-' . $md5 . '-avatar-thumb'.$ext;
                     $target = ConfigLib::g('directory/web') . $url;
+                    $target_thumb = ConfigLib::g('directory/web') . $url_thumb;
                     $url = ufix($url);
+                    @unlink($target);
+                    @unlink($target_thumb);
                     rename($post['avatar'], $target);
-                    $post['avatar'] = $url;
+                    $img = new ImageLib($target);
+                    $img->resize(110, 110, true);
+                    $img->crop(110, 110);
+                    if($img->save($target_thumb)) 
+                        
+                    $post['avatar'] = $url_thumb;
                     $extra .= 'Photo ajoutee' ."\n";
                 }
             }            
@@ -124,6 +136,10 @@ class UserController extends ControllerSecureLib
                 $user->save();
             }
             $this->setUser($user);
+                        
+            $coll2 = new ChallengesModel();
+            $mine = $coll2->getForUser($user->id);
+            if($mine) { return $this->redirect(url('challenge','show',$mine->id)); }
             return $this->redirect(url('user','index'));
         }                    
     }
@@ -142,6 +158,10 @@ class UserController extends ControllerSecureLib
                 {
                     $this->user = $coll->create($user);
                     $this->setUser($this->user);
+                    
+                    $coll2 = new ChallengesModel();
+                    $mine = $coll2->getForUser($this->user->id);
+                    if($mine) { return $this->redirect(url('challenge','show',$mine->id)); }                    
                     return $this->redirect(url('user','index'));
                 }
             }
