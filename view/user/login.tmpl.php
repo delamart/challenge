@@ -62,11 +62,11 @@
     <?php else: ?>
 
         <h1>Choisissez une m&eacute;thode de login</h1>
-                
+        <!-- TODO: fix google login
         <form action="<?php eUrl('user','login','google'); ?>" method="post" class="with-margin">
             <button type="submit" class="pink big full-width">Login avec Google</button>
         </form> 
-
+		-->
         <a href="<?php eUrl('user','login','challenge'); ?>" class="button full-width pink big with-margin">Login avec un compte Challenge</a>
         
         <a href="<?php eUrl('user','create'); ?>" class="button full-width green big with-margin">Cr&eacute;er un compte Challenge</a>
