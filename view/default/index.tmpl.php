@@ -19,14 +19,14 @@
 
     <article class="container_8 clearfix">
     <section class="grid_8">
-        <h1>Bienvenue au Walking Challenge <?php echo date('Y')?></h1>
+        <h1>Bienvenue au Walking Challenge 2013</h1>
         
         <div class="with-margin clearfix">
             <div class="float-left picture">
-            <?php eImg('walkingchallengelogo80.png'); ?>
+            <?php eImg('walkingchallengelogo2013-80.png'); ?>
             </div>
             <br />
-            Tout propri&eacute;taire de chien peut d&egrave;s &agrave; pr&eacute;sent nous rejoindre au Walking Challenge 2012 ! C'est gratuit et b&eacute;n&eacute;vole, la nature &agrave; tant &agrave; nous offrir avec nos quatre pattes, il suffit de se lancer ... Pour comprendre les principes c'est ici, pour s'inscrire <a href="<?php eUrl('user','index'); ?>">c'est par l&agrave; !</a> 
+            Tout propri&eacute;taire de chien peut d&egrave;s &agrave; pr&eacute;sent nous rejoindre au Walking Challenge 2013 ! C'est gratuit et b&eacute;n&eacute;vole, la nature &agrave; tant &agrave; nous offrir avec nos quatre pattes, il suffit de se lancer ... Pour comprendre les principes c'est ici, pour s'inscrire <a href="<?php eUrl('user','index'); ?>">c'est par l&agrave; !</a> 
         </div>
 
         <div class="with-margin clearfix">
@@ -34,8 +34,8 @@
             <?php eImg('Alessonsfrom4legs.jpg'); ?><br />
             <a href="http://www.lessonsfrom4legs.com/">Lessonsfrom4legs</a> furent les<br />premiers challengers. 
             </div>
-            Avec l'arriv&eacute;e d'une nouvelle ann&eacute;e arrivent &eacute;galement de nouveaux challenges et de bonnes r&eacute;solutions. Pour 2012 nous partageons la n&ocirc;tre avec vous !
-            D&egrave;s le mois de janvier, nous vous proposons de participer au Walking Challenge 2012 ! Bien-entendu &agrave; tout instant vous pouvez nous rejoindre.
+            Avec l'arriv&eacute;e d'une nouvelle ann&eacute;e arrivent &eacute;galement de nouveaux challenges et de bonnes r&eacute;solutions. Pour 2013 nous partageons la n&ocirc;tre avec vous !
+            D&egrave;s le mois de janvier, nous vous proposons de participer au Walking Challenge 2013 ! Bien-entendu &agrave; tout instant vous pouvez nous rejoindre.
             Le challenge originel avait &eacute;t&eacute; initi&eacute; par Katie du blog anglophone <a href="http://www.lessonsfrom4legs.com/">Lessonsfrom4legs</a>, et nous sommes tr&egrave;s heureux de le continuer avec sa permission.            
         </div>
 
@@ -124,9 +124,9 @@
         </div>
 
         <div class="with-big-margin clearfix center">
-            <?php eImg('walkingchallengelogo80.png'); ?>
+            <?php eImg('walkingchallengelogo2013-80.png'); ?>
             &nbsp;
-            <?php eImg('walkingchallengelogo120.png'); ?>
+            <?php eImg('walkingchallengelogo2013-120.png'); ?>
         </div>
         
         <div class="with-margin clearfix"> 

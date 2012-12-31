@@ -23,7 +23,7 @@
             Mon Challenge 
         </h1>
         <div class="challenge with-margin">            
-            <img class="challenge-avatar" src="<?php echo $this->challenge->user->avatar ? $this->challenge->user->avatar : ufix('/img/walkingchallengelogo120.png'); ?>" alt="avatar"/>            
+            <img class="challenge-avatar" src="<?php echo $this->challenge->user->avatar ? $this->challenge->user->avatar : ufix($this->default_avatar_img); ?>" alt="avatar"/>            
             <div class="challenge-progress with-progress" data-percent="<?php echo min(array(100,max(array(1,round($this->challenge->total * 100 / $this->challenge->amount))))); ?>" ></div>
             <div class="challenge-amount"><?php echo $this->challenge->total ? $this->challenge->total : 0; ?> <small><?php echo $this->challenge->unit; ?></small></div>
             
