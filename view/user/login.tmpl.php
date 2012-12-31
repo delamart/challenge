@@ -46,11 +46,11 @@
             <fieldset class="with-margin">
                 <div class="input-line with-margin">
                     <label for="email">E-Mail</label> 
-                    <input id="email" type="text" name="email" value="<?php echo $_POST['email']; ?>" placeholder="me@mail.com"/> 
+                    <input id="email" type="text" name="email" value="<?php echo ePost('email'); ?>" placeholder="me@mail.com"/> 
                 </div>
                 <div class="input-line with-margin">
                     <label for="password">Mot de Passe</label> 
-                    <input id="password" type="password" name="password" value="<?php echo $_POST['password']; ?>" placeholder="******" /> 
+                    <input id="password" type="password" name="password" value="<?php echo ePost('password'); ?>" placeholder="******" /> 
                 </div>
             </fieldset>
             

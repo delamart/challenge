@@ -61,7 +61,8 @@ class UserController extends ControllerSecureLib
         }
     }
 
-    public function login($type) {
+    public function login($type = null) {
+        $this->errors = array();
         $this->title = 'login';
         $this->type = $type;
         switch ($type) {
