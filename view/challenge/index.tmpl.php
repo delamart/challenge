@@ -28,7 +28,7 @@
     <?php else: ?>
     <?php foreach($this->challenges as $id => /*@var $challenge ChallengeModel*/ $challenge): ?>        
         <div class="challenge with-margin">            
-            <img class="challenge-avatar" src="<?php echo $challenge->user->avatar ? $challenge->user->avatar : ufix($this->default_avatar_img); ?>" alt="avatar"/>                        
+            <img class="challenge-avatar" src="<?php eufix($challenge->getImage()); ?>" alt="avatar"/>                        
             <div class="challenge-progress"></div>
             <div class="challenge-amount"><?php echo $challenge->total ? $challenge->total : 0; ?> <small><?php echo $challenge->unit; ?></small></div>
             

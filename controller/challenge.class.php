@@ -6,7 +6,6 @@ class ChallengeController extends ControllerSecureLib
     public function __construct()
     {
         parent::__construct(array('index'));
-        $this->default_avatar_img = '/img/walkingchallengelogo2013-120.png';
     }
 
     public function index() {

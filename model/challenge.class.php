@@ -101,4 +101,18 @@ class ChallengeModel extends ModelDbLib {
         return round($this->total / max(array(1,$this->duration_done())), 2);
     }
     
+	public function getImage() {
+		if($this->user->avatar) { return $this->user->avatar; }
+	
+	    $default_img = '/img/walkingchallengelogo120.png';
+		$default_path = ConfigLib::g('directory/web') . $default_img;
+		
+	    $img = '/img/walkingchallengelogo'.date('Y', strtotime($this->start)).'-120.png';
+		$path = ConfigLib::g('directory/web') . $img;
+		
+		if(!file_exists($path)) { return $default_img; }
+		
+		return $img;
+	}
+    
 }
