@@ -77,7 +77,7 @@
         <div class="with-margin">
         <?php if(strtotime($this->challenge->start) > time()): ?>
         	<h1>Votre challenge d&eacute;marre &agrave; la date du <?php echo $this->challenge->start; ?></h1>
-        <?php else: ?>
+        <?php elseif(!$this->challenge->end): ?>
             <form action="<?php eUrl('challenge','show',$this->id); ?>" method="post">
                 <div class="challenge-result">
                     <input id="amount" type="text" name="amount" value="<?php ePost('amount',$this->challenge->rythm); ?>"  class="<?php eIsError('amount',$this->errors); ?> first" size="4" /> <?php echo $this->challenge->unit; ?>
@@ -105,7 +105,7 @@
     
     <?php if($this->challenge->end): ?>
     <section class="grid_8">
-    	<h1>Challenge Termin&eacute;</h1>
+    	<h1>Challenge Termin&eacute; le <?php echo date('Y-m-d \&\a\g\r\a\v\e\; H:i',strtotime($this->challenge->end)); ?></h1>
 	</section>
 	<?php else: ?>
 	<section class="grid_4">
