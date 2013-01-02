@@ -1,4 +1,4 @@
-    <section class="grid_2">
+<section class="grid_2">
         <div class="with-margin">
             <a class="big button dark full-width" href="<?php eUrl('default','index'); ?>">Accueil</a>
         </div>
@@ -20,7 +20,7 @@
     <article class="container_8 clearfix">
     <section class="grid_8">
         <h1>
-            Mon Challenge 
+            Mon Challenge <?php echo date('Y', strtotime($this->challenge->start)); ?>
         </h1>
         <div class="challenge with-margin">            
             <img class="challenge-avatar" src="<?php eufix($this->challenge->getImage()); ?>" alt="avatar"/>            
@@ -39,6 +39,8 @@
             </p>
             <p class="challenge-rythm">
                 <em><?php echo $this->challenge->rythm; ?></em> <?php echo $this->challenge->unit; ?> / <?php echo $this->challenge->rythm_unit; ?>
+                
+                <?php if($this->challenge->end): ?><span class="button small dark">Termin&eacute;</span><?php endif;?>                
             </p>            
         </div>
         <div class="with-margin center">
@@ -73,7 +75,9 @@
 
     <section class="grid_8">
         <div class="with-margin">
-        <?php if($this->challenge->total < $this->challenge->amount): ?>
+        <?php if(strtotime($this->challenge->start) > time()): ?>
+        	<h1>Votre challenge d&eacute;marre &agrave; la date du <?php echo $this->challenge->start; ?></h1>
+        <?php else: ?>
             <form action="<?php eUrl('challenge','show',$this->id); ?>" method="post">
                 <div class="challenge-result">
                     <input id="amount" type="text" name="amount" value="<?php ePost('amount',$this->challenge->rythm); ?>"  class="<?php eIsError('amount',$this->errors); ?> first" size="4" /> <?php echo $this->challenge->unit; ?>
@@ -82,8 +86,6 @@
                     <button class="green float-right" type="submit">Ajouter</button>
                 </div>
             </form>
-        <?php else: ?>
-            <h1>Challenge R&eacute;ussi</h1>
         <?php endif; ?>            
         </div>
     </section>    
@@ -94,16 +96,31 @@
             <strong><?php echo $result->amount; ?></strong>
             <?php echo $this->challenge->unit; ?> &mdash;
             <em><?php echo $result->date('l d / m / Y'); ?></em>
-            <a class="button red float-right" href="<?php eUrl('result','delete',$id); ?>" onclick="return confirm('Are you sure ?');">Effacer</a>
+		    <?php if(!$this->challenge->end): ?>            
+        	    <a class="button red float-right" href="<?php eUrl('result','delete',$id); ?>" onclick="return confirm('Are you sure ?');">Effacer</a>
+       	    <?php endif; ?>
         </div>
     <?php endforeach; ?>    
     </section>
     
+    <?php if($this->challenge->end): ?>
     <section class="grid_8">
+    	<h1>Challenge Termin&eacute;</h1>
+	</section>
+	<?php else: ?>
+	<section class="grid_4">
         <div class="with-margin">
-            <a class="big button red full-width" href="<?php eUrl('challenge','delete',$this->id); ?>" onclick="return confirm('Are you sure ?');">
+			<a class="big button dark full-width" href="<?php eUrl('challenge','terminate',$this->id); ?>" onclick="return confirm('Etes-vous sur que vous voulez terminer ce challenge ?\nVous ne pourrez plus le mettre a jour.');">
+			    Terminer ce Challenge
+			</a>
+		<div>
+	</section>
+    <section class="grid_4">
+        <div class="with-margin">
+            <a class="big button red full-width" href="<?php eUrl('challenge','delete',$this->id); ?>" onclick="return confirm('Etes-vous sur que vous voulez effacer ce challenge ?\nToutes les donnees seront perdues.');">
                 Effacer ce Challenge
             </a>
         </div>
     </secion>
+    <?php endif; ?>
     

@@ -30,7 +30,7 @@
         <div class="challenge with-margin">            
             <img class="challenge-avatar" src="<?php eufix($challenge->getImage()); ?>" alt="avatar"/>                        
             <div class="challenge-progress"></div>
-            <div class="challenge-amount"><?php echo $challenge->total ? $challenge->total : 0; ?> <small><?php echo $challenge->unit; ?></small></div>
+            <div class="challenge-amount"><?php echo $challenge->total ? $challenge->total : 0; ?> <small><?php echo $challenge->unit; ?><br />challenge <?php echo date('Y', strtotime($challenge->start)); ?></small></div>
             
             <p class="challenge-name">
                 <?php if($challenge->user): ?>
@@ -47,7 +47,11 @@
             <p class="challenge-rythm">
                 <em><?php echo $challenge->rythm; ?></em> <?php echo $challenge->unit; ?> / <?php echo $challenge->rythm_unit; ?>
                 
-                <?php if($this->user && $challenge->user && $this->user->id == $challenge->user->id): ?><a class="button small pink" href="<?php eUrl('challenge','show',$id); ?>"><?php if($challenge->total < $challenge->amount) echo 'Mise &agrave; Jour'; else echo 'R&eacute;ussi'; ?></a><?php endif; ?>
+                <?php if($this->user && $challenge->user && $this->user->id == $challenge->user->id): ?>
+                	<a class="button small <?php echo $challenge->end ? 'dark' : 'pink'; ?>" href="<?php eUrl('challenge','show',$id); ?>"><?php echo $challenge->end ? 'Termin&eacute;' : (($challenge->total < $challenge->amount) ? 'Mise &agrave; Jour' : 'R&eacute;ussi'); ?></a>
+                <?php else: ?>
+                	<?php if($challenge->end): ?><span class="button small dark">Termin&eacute;</span><?php endif;?>
+                <?php endif; ?>
             </p>            
         </div>        
     <?php endforeach; ?>

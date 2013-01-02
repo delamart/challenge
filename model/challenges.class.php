@@ -7,7 +7,7 @@ class ChallengesModel extends CollectionDbLib {
          $this->obj_class = 'ChallengeModel';
          $this->table = 'challenge';
          $this->pk_column = 'id';
-         $this->columns = array('id', 'iduser', 'amount', 'unit','duration','duration_unit','rythm','rythm_unit','start');
+         $this->columns = array('id', 'iduser', 'amount', 'unit','duration','duration_unit','rythm','rythm_unit','start','end');
          parent::init();
      }
      

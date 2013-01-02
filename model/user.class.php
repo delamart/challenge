@@ -16,7 +16,7 @@ class UserModel extends ModelDbLib {
         $name = $this->name;
         $add = $this->getAdditionals();
         
-        $out = $name . ' & ' . $add;
+        $out = $add ? $name . ' & ' . $add : $name;
         if($max && strlen_pixels($out) > $max) {
             $out = $name . ' & Co.';
         } 

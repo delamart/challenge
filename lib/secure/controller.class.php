@@ -19,7 +19,7 @@ abstract class ControllerSecureLib extends ControllerLib {
     public function isAuthenticated() { return $this->getUser() !== null; }
 
 
- public function proxy_call($name, $arguments)
+ 	public function proxy_call($name, $arguments)
     {
        if(!in_array($name, $this->public_views) && !$this->isAuthenticated()) {
            $login_url = url(ConfigLib::g('security/login_controller','user'),

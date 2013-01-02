@@ -70,10 +70,17 @@ class ChallengeModel extends ModelDbLib {
         
     }
     
+	public function terminate($date = null) {
+		if($date === null) { $date = date('Y-m-d H:i:s'); }
+		if(is_numeric($date)) { $date = date('Y-m-d H:i:s', $date); }
+		$this->end = $date;
+		return $this->save();
+	}
+	
     public function start($format = 'Y-m-d H:i:s') {
         if(!$this->start) { return null; }
         return date($format,  strtotime($this->start));
-    }    
+    }
 
     public function days() {
         if(!$this->start) { return null; }

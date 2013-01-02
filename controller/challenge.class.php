@@ -21,11 +21,12 @@ class ChallengeController extends ControllerSecureLib
         $this->challenges = $coll->getCustom($query);
         
         $this->mine = null;
-        foreach($this->challenges as $challenge) { if($challenge->user == $this->user) { $this->mine = $challenge->id; } }
+        foreach($this->challenges as $challenge) { if($challenge->user == $this->user && !$challenge->end) { $this->mine = $challenge->id; } }
     }
 
     public function create() {
         $this->title = 'Nouveau Challenge';
+        $this->errors = array();
         $coll = new ChallengesModel();
         if(RoutingLib::isPost())
         {
@@ -81,5 +82,12 @@ class ChallengeController extends ControllerSecureLib
         $this->challenge->delete();        
         $this->redirect(url('challenge','index'));
     }
+
+	public function terminate($id) {
+	    $coll = new ChallengesModel();
+	    $this->challenge = $coll->get($id);
+	    $this->challenge->terminate();        
+	    $this->redirect(url('challenge','show',$id));
+	}
     
 }

@@ -64,6 +64,9 @@ function ePost($key, $default = '') { echo isset($_POST[$key]) ? $_POST[$key] : 
 // http://www.php.net/manual/en/function.strlen.php#76043
 //------------------------------------------ 
 function strlen_pixels($text) { 
+
+	$text = iconv("UTF-8", "ASCII//IGNORE", $text);
+
     /* 
         Pixels utilized by each char (Verdana, 10px, non-bold) 
         04: j 
@@ -117,8 +120,9 @@ function strlen_pixels($text) {
    
     // USING ARRAY $ps 
     $total = 1; 
-    for($i=0; $i<strlen($text); $i++) { 
-        $temp = $ps[ord($text[$i])]; 
+    for($i=0; $i<mb_strlen($text); $i++) { 
+    	$j = ord(mb_strcut($text,$i,1));
+        $temp = isset($ps[$j]) ? $ps[$j] : false;
         if (!$temp) $temp = 10.5; // default size for 10px 
         $total += $temp; 
     } 

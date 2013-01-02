@@ -49,8 +49,8 @@ class KernelLib {
             
             if($result !== ControllerLib::RETURN_NONE) { 
                 
-                $view = new ViewLib($controller, $view);        
-                $view->_render($controller_obj->getVars());  
+                $view = new ViewLib($controller, $view);   
+                $view->_render($controller_obj->getVars());
                 
             }
                         
