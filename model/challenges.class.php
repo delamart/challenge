@@ -42,7 +42,7 @@ class ChallengesModel extends CollectionDbLib {
         $user_cols = implode(', ', $cols);
         if($user_cols) { $user_cols = ', ' . $user_cols; }
         
-        return $this->getCustom(sprintf('SELECT c.* %s FROM %s AS c LEFT JOIN(%s AS u) ON (c.iduser = u.%s) %s %s',$user_cols, $this->table, $coll->tbl(), $coll->pk(), $where, $limit));
+        return $this->getCustom(sprintf('SELECT c.* %s FROM %s AS c LEFT JOIN(%s AS u) ON (c.iduser = u.%s) %s ORDER BY c.start DESC %s',$user_cols, $this->table, $coll->tbl(), $coll->pk(), $where, $limit));
      }
      
      public function getForUser($iduser)
