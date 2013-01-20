@@ -13,7 +13,9 @@ class DbLib extends PDO {
         
         if(!isset(self::$connections[$name])) {
         
-        	switch(ConfigLib::g('database/from','config'))
+        	$db_from = ConfigLib::g('database/from','config');
+        	if(isset($_SERVER['PAGODA_BOX'])) { $db_from = 'boxfile'; }
+        	switch($db_from)
         	{
         		case 'boxfile':
 	        		//mysql:dbname=challenge;host=127.0.0.1;port=3306
