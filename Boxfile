@@ -1,8 +1,7 @@
 web1: #component type & number
   name: challenge            #component settings
   shared_writable_dirs:
-    - var/cache
-    - var/sessions
+    - data/uploads
   document_root: web/
   php_extensions:
     - pdo
