@@ -1,0 +1,14 @@
+web1: #component type & number
+  name: challenge            #component settings
+  shared_writable_dirs:
+    - var/cache
+    - var/sessions
+  document_root: web/
+  php_extensions:
+    - pdo
+    - pdo_mysql
+    - gd
+
+db1:
+  name: laverna
+  type: mysql
