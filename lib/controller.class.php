@@ -4,8 +4,14 @@ abstract class ControllerLib {
 
     const RETURN_VIEW = null;
     const RETURN_NONE = false;
+    const RETURN_EMPTY = 1;
     
     private $vars;
+    
+    public function __construct()
+    {
+    	//parent::__construct();
+    }
     
     public function __get($name)
     {

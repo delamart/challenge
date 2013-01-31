@@ -2,6 +2,8 @@
 
 class ViewLib {       
     
+    const NO_LAYOUT = false;
+    
     public static function _getHeader($layout) {
         if(!$layout) return false;
         $tmpl = ConfigLib::g('directory/layout') . DIRECTORY_SEPARATOR . $layout . '.header.tmpl.php';
