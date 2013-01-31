@@ -86,6 +86,14 @@ class DbadminPluginLib {
 		self::$cache_tables = $tables;
 		return $tables;
  	}
+ 	
+	private function create_table($sql) {
+		if(!preg_match('~^\s*CREATE\s+TABLE\s+~', $sql)) { throw new Exception('Sql provided is not a CREATE TABLE statement'); }
+		
+		$this->db->query($sql);
+		$this->get_tables(false); //refresh cache
+		return true;
+	}
  	 
  	private function create_revision_table() {
  		if($this->table_exists(self::TABLE_REVISION)) { return null; }
