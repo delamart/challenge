@@ -28,14 +28,20 @@ class DbadminPluginLib {
 		$out = '';
 	
 		$rev = $this->get_revision();
-		$out .= "Revision: " . ($rev===false?'none':$rev) . "\n\n";
-	
+		$out .= "Revision: " . ($rev===false?'none':$rev) . "\n";
+		$stmt2 = $this->db->query(sprintf('SELECT * FROM `%s`', self::TABLE_REVISION));
+		while($revisions = $stmt2->fetch(PDO::FETCH_ASSOC))
+		{
+			$out .= "\trev." . $revisions['nb'] . " (" . $revisions['updated_at'] . ")\n";
+		}
+		$out .= "\n";
+		
 		$out .= "Tables:\n";		
 		foreach($this->get_tables() as $table) 
 		{
 			$out .= "\t$table";
-			$stmt2 = $this->db->query(sprintf('SELECT COUNT(1) FROM `%s`', $table));
-			$out .= " (" . $stmt2->fetchColumn(0) . " rows)\n";			
+			$stmt3 = $this->db->query(sprintf('SELECT COUNT(1) FROM `%s`', $table));
+			$out .= " (" . $stmt3->fetchColumn(0) . " rows)\n";			
 		}
 		return $out;
 	} 
@@ -115,7 +121,7 @@ class DbadminPluginLib {
  	private function get_revision() {
  		if(!$this->table_exists('_revision')) { return false; }
 		$stmt = $this->db->query('SELECT `nb` FROM `'.self::TABLE_REVISION.'` ORDER BY `updated_at` DESC LIMIT 1');
-		$rev = $stmt->fetchColumn(1);
+		$rev = $stmt->fetchColumn(0);
 		return $rev === false ? 0 : (int) $rev;
  	}
     
