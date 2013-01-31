@@ -27,7 +27,19 @@ class ViewLib {
     public function __construct($controller = null, $template = null, $layout = null) {                
         $this->_controller = $controller === null ? ConfigLib::g('default/controller') : $controller;
         $this->_template = $template === null ? ConfigLib::g('default/view') : $template;
-        $this->_layout = $layout === null ? ConfigLib::g('default/layout') : $layout;
+        
+        if($this->_controller[0] === '_')
+        {
+        	$this->_layout = '_';
+        }
+        elseif($layout === null)
+        {
+        	$this->_layout = ConfigLib::g('default/layout');
+        }
+        else 
+        {
+        	$this->layout = $layout;
+        }
     }
     
     public function __get($name) {
@@ -39,11 +51,11 @@ class ViewLib {
         if(!file_exists($tmpl)) { throw new Exception("Could not find template: $tmpl."); }
         $this->_vars = $vars;
         
-        if(($header = self::_getHeader($this->_layout))) { include($header); }
+        if(($header = self::_getHeader($this->_layout)) && ($this->_layout !== self::NO_LAYOUT)) { include($header); }
         
         include($tmpl);
         
-        if(($footer = self::_getFooter($this->_layout))) { include($footer); }
+        if(($footer = self::_getFooter($this->_layout)) && ($this->_layout !== self::NO_LAYOUT)) { include($footer); }
     }
     
 }
