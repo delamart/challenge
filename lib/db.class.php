@@ -22,7 +22,7 @@ class DbLib extends PDO {
         			$dsn = 	'mysql:dbname=' . $_SERVER["DB1_NAME"].
         					';host='. $_SERVER["DB1_HOST"].
         					';port='. $_SERVER["DB1_PORT"];
-        			$username = $_SERVER["DB1_USER"];        			                      
+        			$username = $_SERVER["DB1_USER"];
 					$passwd = $_SERVER["DB1_PASS"];
 					break;
         		case 'config':
